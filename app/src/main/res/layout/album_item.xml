@@ -10,10 +10,9 @@
     android:clickable="true"
     android:focusable="true"
     android:checkable="true"
-    card_view:cardBackgroundColor="#227C90"
-    card_view:cardCornerRadius="20dp"
+    card_view:cardCornerRadius="12dp"
     card_view:cardElevation="3dp"
-    card_view:contentPadding="4dp">
+    card_view:contentPadding="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,29 +23,36 @@
             android:id="@+id/item_image"
             android:layout_width="81dp"
             android:layout_height="80dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/album_name"
+        <RelativeLayout
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/item_image"
             android:layout_toStartOf="@id/item_image"
-            android:text="Album title"/>
+            android:padding="20dp">
 
-        <TextView
-            android:id="@+id/performers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/item_image"
-            android:layout_below="@id/album_name"
-            android:text="Performers"/>
+            <TextView
+                android:id="@+id/album_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                tools:text="Album name"/>
+
+            <TextView
+                android:id="@+id/performers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/album_name"
+                android:layout_alignParentStart="true"
+                tools:text="Performers name" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
-
 
 </com.google.android.material.card.MaterialCardView>

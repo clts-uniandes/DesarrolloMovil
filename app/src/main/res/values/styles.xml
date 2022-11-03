@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Vinyls.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:colorBackground">@color/grey_light</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <style name="Widget.Vinyls.Title.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:minHeight">@dimen/title_min_text_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <style name="Widget.Vinyls.SubTitle.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:minHeight">@dimen/sub_title_min_text_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+</resources>
