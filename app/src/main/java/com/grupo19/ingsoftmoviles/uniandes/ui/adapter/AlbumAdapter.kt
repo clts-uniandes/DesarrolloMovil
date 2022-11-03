@@ -4,8 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.grupo19.ingsoftmoviles.uniandes.R
 import com.grupo19.ingsoftmoviles.uniandes.data.Album
 
@@ -25,7 +27,11 @@ class AlbumAdapter(private val context: Context, private val albumsList: List<Al
      */
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         val album = albumsList[position]
-        holder.textView.text = album.name
+        holder.albumNameTextView.text = album.name
+        holder.performersNameTextView.text = album.performers
+        Glide.with(context)
+            .load(album.cover)
+            .into(holder.imageView)
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +39,8 @@ class AlbumAdapter(private val context: Context, private val albumsList: List<Al
     }
 
     class AlbumViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.album_name)
+        val albumNameTextView: TextView = view.findViewById(R.id.album_name)
+        val performersNameTextView: TextView = view.findViewById(R.id.performers)
+        val imageView: ImageView = view.findViewById(R.id.item_image)
     }
 }

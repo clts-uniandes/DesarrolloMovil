@@ -13,6 +13,10 @@ data class AlbumResponse(
     val comments: List<CommentResponse>,
 ) {
 
+    fun getPerformersName(): String {
+        return performers.joinToString("-")
+    }
+
     data class TrackResponse(
         val id: Int,
         val name: String,
@@ -24,7 +28,12 @@ data class AlbumResponse(
         val name: String,
         val description: String,
         val birthDate: String
-    )
+    ) {
+
+        override fun toString(): String {
+            return name
+        }
+    }
 
     data class CommentResponse(
         val id: Int,
