@@ -41,6 +41,6 @@ class AlbumAdapter(private val context: Context, private val albumsList: List<Al
     class AlbumViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val albumNameTextView: TextView = view.findViewById(R.id.album_name)
         val performersNameTextView: TextView = view.findViewById(R.id.performers)
-        val imageView: ImageView = view.findViewById(R.id.item_image)
+        //val imageView: ImageView = view.findViewById(R.id.item_image)
     }
 }
