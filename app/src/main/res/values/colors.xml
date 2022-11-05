@@ -10,9 +10,9 @@
 
     <color name="grey">#FF212121</color>
     <color name="grey_light">#FF484848</color>
-    <color name="grey_black">#FF000000</color>
+    <color name="grey_dark">#FF000000</color>
 
-    <color name="grey_secondary">#bdbdbd</color>
-    <color name="grey_secondary_light">#efefef</color>
-    <color name="grey_secondary_dark">#8d8d8d</color>
+    <color name="grey_secondary">#FFbdbdbd</color>
+    <color name="grey_secondary_light">#FFefefef</color>
+    <color name="grey_secondary_dark">#FF8d8d8d</color>
 </resources>

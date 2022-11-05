@@ -10,7 +10,7 @@
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
-    card_view:cardBackgroundColor="#FFefefef"
+    card_view:cardBackgroundColor="?attr/colorSecondary"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="3dp"
     card_view:contentPadding="0dp">
@@ -32,7 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignBottom="@+id/item_image"
-            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:layout_toStartOf="@id/item_image">
 
             <TextView

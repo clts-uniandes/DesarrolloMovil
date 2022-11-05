@@ -2,16 +2,18 @@
     <!-- Base application theme. -->
     <style name="Theme.Vynils" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/grey</item>
-        <item name="colorPrimaryVariant">@color/grey_light</item>
-        <item name="colorOnPrimary">@color/grey_black</item>
+        <item name="colorPrimary">@color/grey_light</item>
+        <item name="colorPrimaryVariant">@color/grey</item>
+        <item name="colorOnPrimary">@color/black</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/grey_secondary</item>
+        <item name="colorSecondary">@color/grey</item>
         <item name="colorSecondaryVariant">@color/grey_secondary_light</item>
-        <item name="colorOnSecondary">@color/grey_secondary_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="cardViewStyle">@style/Widget.Vinyls.CardView</item>
     </style>
 </resources>
