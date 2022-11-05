@@ -5,10 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grupo19.ingsoftmoviles.model.data.Album
+import com.grupo19.ingsoftmoviles.model.repo.AlbumRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class AlbumViewModel(): ViewModel() {
+class AlbumViewModel(private val albumRepository: AlbumRepository = AlbumRepository()): ViewModel() {
 
     private val _progressVisible = MutableLiveData<Boolean>()
     val progressVisible: LiveData<Boolean> get() = _progressVisible
@@ -23,13 +24,10 @@ class AlbumViewModel(): ViewModel() {
     fun onCreate() {
         viewModelScope.launch {
             _progressVisible.value = true
-            _albums.value = getAlbums()
+            delay(1000)
+            _albums.value = albumRepository.getAlbums()
             _progressVisible.value = false
         }
-    }
-
-    fun getAlbums():List<Album> {
-        return listOf(Album(1,"Album1", "Cover1", "Performer1"), Album(2,"Album2", "Cover2", "Performer2"))
     }
 
     fun onAlbumClick(album: Album) {
