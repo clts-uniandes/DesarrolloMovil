@@ -1,4 +1,4 @@
-package com.grupo19.ingsoftmoviles.ui
+package com.grupo19.ingsoftmoviles.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
