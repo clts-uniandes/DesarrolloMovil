@@ -21,13 +21,13 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:errorEnabled="true"
-        android:id="@+id/album_name_ly"
+        android:id="@+id/track_name_ly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/input_name_track">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/album_name"
+            android:id="@+id/track_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -36,11 +36,12 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:errorEnabled="true"
+        android:id="@+id/track_duration_ly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Duracion">
+        android:hint="@string/track_duracion">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/album_cover"
+            android:id="@+id/track_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -53,6 +54,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
-        android:text="Asociar"
+        android:text="@string/button_asociar"
         android:textAlignment="center" />
 </LinearLayout>

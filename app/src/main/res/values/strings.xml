@@ -12,6 +12,8 @@
     <string name="title_activity_asociate_track">Asociar</string>
     <string name="input_name_track">Nombre del track</string>
     <string name="newalbum_button_create">+ Crear</string>
+    <string name="track_duracion">Duracion</string>
+    <string name="button_asociar">+ Asociar</string>
     <string-array name="Genres">
         <item>Classical</item>
         <item>Salsa</item>
