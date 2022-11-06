@@ -1,7 +1,7 @@
 package com.grupo19.ingsoftmoviles.model.network.album
 
-import android.util.Log
 import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
+import com.grupo19.ingsoftmoviles.model.network.RetrofitBuilder
 
 class AlbumServiceAdapterImpl(private val clientBuilder: RetrofitBuilder = RetrofitBuilder()): AlbumServiceAdapter {
 

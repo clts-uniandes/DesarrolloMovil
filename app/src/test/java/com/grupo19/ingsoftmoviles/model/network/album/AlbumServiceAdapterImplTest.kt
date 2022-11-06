@@ -2,6 +2,7 @@ package com.grupo19.ingsoftmoviles.model.network.album
 
 import com.google.gson.Gson
 import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
+import com.grupo19.ingsoftmoviles.model.network.RetrofitBuilder
 import com.grupo19.ingsoftmoviles.util.FileUtils
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert

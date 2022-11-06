@@ -1,4 +1,4 @@
-package com.grupo19.ingsoftmoviles.model.network.album
+package com.grupo19.ingsoftmoviles.model.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
