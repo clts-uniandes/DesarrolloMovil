@@ -27,7 +27,26 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
         binding = ActivityAsociateTrackAlbumBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.buttonAsociate.setOnClickListener{
-            createTrack()
+            var validateName: Boolean = false
+            var validateDuration: Boolean = false
+
+            if(binding.trackName.text.toString().isEmpty()) {
+                binding.trackNameLy.setError("Campo requerido")
+                validateName = false
+            }else{
+                binding.trackNameLy.setError(null)
+                validateName = true
+            }
+            if(binding.trackDuration.text.toString().isEmpty()) {
+                binding.trackDurationLy.setError("Campo requerido")
+                validateDuration = false
+            }else{
+                validateDuration = true
+                binding.trackDurationLy.setError(null)
+            }
+            if(validateName && validateDuration){
+                createTrack()
+            }
         }
         trackViewModel.statusMessage.observe(this){
             if(it){
