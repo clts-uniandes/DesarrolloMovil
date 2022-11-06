@@ -1,4 +1,4 @@
-package com.grupo19.ingsoftmoviles.viewmodel
+package com.grupo19.ingsoftmoviles.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grupo19.ingsoftmoviles.model.data.Album
 import com.grupo19.ingsoftmoviles.model.repo.AlbumRepository
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class AlbumViewModel(private val albumRepository: AlbumRepository = AlbumRepository()): ViewModel() {
@@ -24,7 +23,6 @@ class AlbumViewModel(private val albumRepository: AlbumRepository = AlbumReposit
     fun onCreate() {
         viewModelScope.launch {
             _progressVisible.value = true
-            delay(1000)
             _albums.value = albumRepository.getAlbums()
             _progressVisible.value = false
         }

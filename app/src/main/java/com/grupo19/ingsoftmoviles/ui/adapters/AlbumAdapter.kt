@@ -29,9 +29,9 @@ class AlbumAdapter(private val context: Context, private val albumsList: List<Al
         val album = albumsList[position]
         holder.albumNameTextView.text = album.name
         holder.performersNameTextView.text = album.performers
-//        Glide.with(context)
-//            .load(album.cover)
-//            .into(holder.imageView)
+        Glide.with(context)
+            .load(album.cover)
+            .into(holder.imageView)
     }
 
     override fun getItemCount(): Int {
@@ -41,6 +41,6 @@ class AlbumAdapter(private val context: Context, private val albumsList: List<Al
     class AlbumViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val albumNameTextView: TextView = view.findViewById(R.id.album_name)
         val performersNameTextView: TextView = view.findViewById(R.id.performers)
-        //val imageView: ImageView = view.findViewById(R.id.item_image)
+        val imageView: ImageView = view.findViewById(R.id.item_image)
     }
 }
