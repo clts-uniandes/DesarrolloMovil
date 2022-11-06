@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Vinilos</string>
+    <string name="input_name">Nombre</string>
+    <string name="input_cover">Caratula</string>
+    <string name="input_releasedate">Fecha de lanzamiento</string>
+    <string name="input_description">Descripcion</string>
+    <string name="input_genre">Genero</string>
+    <string name="input_recordlabel">Sello discografico</string>
+    <string name="titleCreate">Crear Album</string>
+    <string name="button_crear">+ Crear</string>
+    <string-array name="genre_array">
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>Clasica</item>
+    </string-array>
+    <string-array name="recordlabel_array">
+        <item>Sony</item>
+        <item>Universal</item>
+        <item>-</item>
+    </string-array>
 </resources>
