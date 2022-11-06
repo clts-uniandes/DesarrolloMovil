@@ -10,7 +10,7 @@ data class AlbumResponse(
     val recordLabel: String,
     val tracks: List<TrackResponse>,
     val performers: List<PerformerResponse>,
-    val comments: List<CommentResponse>,
+    val comments: List<CommentResponse>
 ) {
 
     fun getPerformersName(): String {
