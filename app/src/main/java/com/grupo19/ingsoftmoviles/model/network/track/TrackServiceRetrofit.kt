@@ -7,6 +7,8 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface TrackServiceRetrofit{
+
     @POST("/albums/{id_album}/tracks")
-    fun creteTrack(@Path("id_album")  id_album:Int, @Body trackCreate: TrackCreate):TrackResponse
+    suspend fun creteTrack(@Path("id_album")  id_album:Int, @Body trackCreate: TrackCreate): TrackResponse
+
 }
