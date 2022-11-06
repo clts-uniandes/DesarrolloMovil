@@ -10,7 +10,7 @@ import retrofit2.Response
 
 class AlbumRepository(private val albumServiceAdapter: AlbumServiceAdapter = AlbumServiceAdapterImpl()) {
 
-    suspend fun getAlbums(): List<Album> = albumServiceAdapter.getAlbums().map(AlbumMapper::transformToAlbum)
+    suspend fun getAlbums(): List<AlbumResponse> = albumServiceAdapter.getAlbums()
 
     suspend fun createAlbum(albumCreate: AlbumCreate): Response<AlbumResponse>? {
         return albumServiceAdapter.createAlbum(albumCreate)

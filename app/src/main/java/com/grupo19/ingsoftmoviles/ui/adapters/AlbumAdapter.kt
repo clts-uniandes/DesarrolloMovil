@@ -11,8 +11,9 @@ import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.model.data.Album
+import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 
-class AlbumAdapter(private val context: Context, private val albumsList: List<Album>, val clickListener: (Album) -> Unit): RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
+class AlbumAdapter(private val context: Context, private val albumsList: List<AlbumResponse>, val clickListener: (AlbumResponse) -> Unit): RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
 
     /**
      * Create new views (invoked by the layout manager)
@@ -29,7 +30,7 @@ class AlbumAdapter(private val context: Context, private val albumsList: List<Al
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         val album = albumsList[position]
         holder.albumNameTextView.text = album.name
-        holder.performersNameTextView.text = album.performers
+        holder.performersNameTextView.text = album.getPerformersName()
         Glide.with(context)
             .load(album.cover)
             .into(holder.imageView)

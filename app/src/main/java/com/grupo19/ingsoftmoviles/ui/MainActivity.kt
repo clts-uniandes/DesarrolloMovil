@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.grupo19.ingsoftmoviles.databinding.ActivityMainBinding
+import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 import com.grupo19.ingsoftmoviles.ui.adapters.AlbumAdapter
 import com.grupo19.ingsoftmoviles.viewmodel.AlbumViewModel
-
-const val EXTRA_MESSAGE = "com.grupo19.ingsoftmoviles.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,18 +30,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         albumViewModel.showMessage.observe(this) {
-            //TODO llamar a detalle de album
-            //Toast.makeText(this, it, Toast.LENGTH_LONG).show()
-            sendMessage(it)
+            showAlbumDetail(it)
         }
 
         albumViewModel.onCreate()
     }
 
     /** Called when the user taps the Send button */
-    private fun sendMessage(message: String) {
+    private fun showAlbumDetail(album: AlbumResponse) {
         val intent = Intent(this, AlbumDetailActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
+            putExtra(Constants.ALBUM_OBJECT, album)
         }
         startActivity(intent)
     }
