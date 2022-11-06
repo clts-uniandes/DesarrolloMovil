@@ -3,11 +3,14 @@ package com.grupo19.ingsoftmoviles.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityAsociateTrackAlbumBinding
 import com.grupo19.ingsoftmoviles.databinding.ActivityMainBinding
 import com.grupo19.ingsoftmoviles.model.data.TrackCreate
 import com.grupo19.ingsoftmoviles.model.repo.TrackRepository
+import kotlinx.coroutines.launch
 
 class AsociateTrackAlbumActivity : AppCompatActivity() {
 
@@ -27,11 +30,16 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
     fun createTrack(){
         val repository : TrackRepository = TrackRepository()
         val trackCreate : TrackCreate = TrackCreate("test1", "4:00")
-        val response = repository.createTrack(11, trackCreate)
-        if (response){
-            Toast.makeText(this, "funciona", Toast.LENGTH_LONG).show()
-        }else {
-            Toast.makeText(this, "no funciona", Toast.LENGTH_LONG).show()
+
+        lifecycleScope.launch {
+            val response = repository.createTrack(11, trackCreate)
+            if (response){
+                println("funciona")
+            }else {
+                println("no funciona")
+            }
         }
+
+
     }
 }
