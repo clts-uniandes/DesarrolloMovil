@@ -12,7 +12,7 @@ class AlbumRepository(private val albumServiceAdapter: AlbumServiceAdapter = Alb
 
     suspend fun getAlbums(): List<Album> = albumServiceAdapter.getAlbums().map(AlbumMapper::transformToAlbum)
 
-    suspend fun createAlbum(albumCreate: AlbumCreate): Response<AlbumResponse> {
+    suspend fun createAlbum(albumCreate: AlbumCreate): Response<AlbumResponse>? {
         return albumServiceAdapter.createAlbum(albumCreate)
     }
 
