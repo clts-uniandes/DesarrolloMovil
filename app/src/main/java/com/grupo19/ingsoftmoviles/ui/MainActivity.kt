@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityMainBinding
 import com.grupo19.ingsoftmoviles.ui.adapters.AlbumAdapter
-import com.grupo19.ingsoftmoviles.viewmodel.AlbumViewModel
 
 class MainActivity : AppCompatActivity() {
 

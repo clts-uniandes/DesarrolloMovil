@@ -10,7 +10,7 @@ class AlbumServiceAdapterImpl: AlbumServiceAdapter {
 
         Log.i("AlbumServiceAdapterImpl", "Getting albums from back-vinyls")
 
-        return listOf(AlbumResponse(1, "album1", "cover1"), AlbumResponse(2, "album2", "cover2"))
+        return AlbumClient.service.getAlbums()
     }
 
 }
