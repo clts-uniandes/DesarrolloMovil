@@ -5,4 +5,4 @@ data class Album(
     val name: String,
     val cover: String,
     val performers: String
-)
+) : java.io.Serializable
