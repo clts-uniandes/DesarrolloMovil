@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityMainBinding
 import com.grupo19.ingsoftmoviles.ui.adapters.AlbumAdapter
 
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         albumViewModel.albums.observe(this) {
                 albums -> binding.albumsRecyclerView.adapter = AlbumAdapter(this, albums)
