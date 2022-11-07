@@ -1,12 +1,14 @@
 package com.grupo19.ingsoftmoviles.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.grupo19.ingsoftmoviles.databinding.ActivityMainBinding
+import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 import com.grupo19.ingsoftmoviles.ui.adapters.AlbumAdapter
+import com.grupo19.ingsoftmoviles.viewmodel.AlbumViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        albumViewModel.albums.observe(this) {
-                albums -> binding.albumsRecyclerView.adapter = AlbumAdapter(this, albums)
+        albumViewModel.albums.observe(this) { albums ->
+            binding.albumsRecyclerView.adapter = AlbumAdapter(this, albums) { albumViewModel.onAlbumClick(it) }
         }
 
         albumViewModel.progressVisible.observe(this) {
@@ -28,9 +30,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         albumViewModel.showMessage.observe(this) {
-            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+            showAlbumDetail(it)
         }
 
         albumViewModel.onCreate()
+    }
+
+    /** Called when the user taps the Send button */
+    private fun showAlbumDetail(album: AlbumResponse) {
+        val intent = Intent(this, AlbumDetailActivity::class.java).apply {
+            putExtra(Constants.ALBUM_OBJECT, album)
+        }
+        startActivity(intent)
     }
 }
