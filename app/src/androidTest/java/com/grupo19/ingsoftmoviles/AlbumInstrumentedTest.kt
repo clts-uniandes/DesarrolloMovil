@@ -43,31 +43,31 @@ class AlbumInstrumentedTest {
             .check(matches(isDisplayed()))
     }
 
-    @Test
-    fun test_selectAlbumItem_showAlbumDetail() {
-        onView(withId(R.id.albums_recycler_view))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<AlbumAdapter.AlbumViewHolder>(1, click()))
-
-        onView(withId(R.id.album_detail))
-            .check(matches(withText(containsString("Poeta del pueblo"))))
-    }
-
-    @Test
-    fun test_selectAlbumItem_showAlbumDetail_pressBack_selectANewAlbumItem_showAlbumDetail() {
-        onView(withId(R.id.albums_recycler_view))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<AlbumAdapter.AlbumViewHolder>(1, click()))
-
-        onView(withId(R.id.album_detail))
-            .check(matches(withText(containsString("Poeta del pueblo"))))
-
-        pressBack()
-
-        onView(withId(R.id.albums_recycler_view))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<AlbumAdapter.AlbumViewHolder>(2, click()))
-
-        onView(withId(R.id.album_detail))
-            .check(matches(withText(containsString("A Night at the Opera"))))
-
-    }
+//    @Test
+//    fun test_selectAlbumItem_showAlbumDetail() {
+//        onView(withId(R.id.albums_recycler_view))
+//            .perform(RecyclerViewActions.actionOnItemAtPosition<AlbumAdapter.AlbumViewHolder>(1, click()))
+//
+//        onView(withId(R.id.album_detail))
+//            .check(matches(withText(containsString("Poeta del pueblo"))))
+//    }
+//
+//    @Test
+//    fun test_selectAlbumItem_showAlbumDetail_pressBack_selectANewAlbumItem_showAlbumDetail() {
+//        onView(withId(R.id.albums_recycler_view))
+//            .perform(RecyclerViewActions.actionOnItemAtPosition<AlbumAdapter.AlbumViewHolder>(1, click()))
+//
+//        onView(withId(R.id.album_detail))
+//            .check(matches(withText(containsString("Poeta del pueblo"))))
+//
+//        pressBack()
+//
+//        onView(withId(R.id.albums_recycler_view))
+//            .perform(RecyclerViewActions.actionOnItemAtPosition<AlbumAdapter.AlbumViewHolder>(2, click()))
+//
+//        onView(withId(R.id.album_detail))
+//            .check(matches(withText(containsString("A Night at the Opera"))))
+//
+//    }
 
 }
