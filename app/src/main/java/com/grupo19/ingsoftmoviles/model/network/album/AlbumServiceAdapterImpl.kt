@@ -8,7 +8,6 @@ import retrofit2.Response
 class AlbumServiceAdapterImpl(private val clientBuilder: RetrofitBuilder = RetrofitBuilder()): AlbumServiceAdapter {
 
     override suspend fun getAlbums(): List<AlbumResponse> {
-        //Log.i("AlbumServiceAdapterImpl", "Getting albums from back-vinyls")
         return clientBuilder.createClient(AlbumServiceRetrofit::class.java).getAlbums()
     }
 
