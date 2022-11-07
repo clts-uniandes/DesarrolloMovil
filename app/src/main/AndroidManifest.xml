@@ -24,7 +24,7 @@
                 android:value=".ui.MainActivity" />
         </activity>
         <activity
-            android:name=".ui.AsociateTrackAlbumActivity"
+            android:name=".ui.NewAlbumActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
