@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     /** Called when the user taps the Send button */
     private fun showAlbumDetail(album: AlbumResponse) {
-        val intent = Intent(this, AlbumDetailActivity::class.java).apply {
+        val intent = Intent(this, MainActivity2::class.java).apply {
             putExtra(Constants.ALBUM_OBJECT, album)
         }
         startActivity(intent)
