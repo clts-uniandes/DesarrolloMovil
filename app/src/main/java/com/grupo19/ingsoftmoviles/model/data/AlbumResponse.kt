@@ -10,8 +10,8 @@ data class AlbumResponse(
     val recordLabel: String,
     val tracks: List<TrackResponse>,
     val performers: List<PerformerResponse>,
-    val comments: List<CommentResponse>,
-) {
+    val comments: List<CommentResponse>
+): java.io.Serializable {
 
     fun getPerformersName(): String {
         return performers.joinToString("-")
@@ -21,14 +21,14 @@ data class AlbumResponse(
         val id: Int,
         val name: String,
         val duration: String
-    )
+    ): java.io.Serializable
 
     data class PerformerResponse(
         val id: Int,
         val name: String,
         val description: String,
         val birthDate: String
-    ) {
+    ): java.io.Serializable {
 
         override fun toString(): String {
             return name
@@ -39,5 +39,5 @@ data class AlbumResponse(
         val id: Int,
         val duration: String,
         val rating: Int
-    )
+    ): java.io.Serializable
 }
