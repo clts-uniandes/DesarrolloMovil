@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.card.MaterialCardView
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
@@ -23,7 +26,14 @@ class ArtistAdapter(private val context: Context, private val artistList: List<A
         val artist = artistList[position]
         holder.artistName.text = artist.name
         holder.artistDescription.text = artist.description.toString().substring(0,150)
-        Glide.with(context).load(artist.image).into(holder.artisImageView)
+        Glide.with(context)
+            .load(artist.image.toUri().buildUpon().scheme("https").build())
+            .apply(
+                RequestOptions()
+                    .placeholder(R.drawable.loading_animation)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .error(R.drawable.ic_broken_image))
+            .into(holder.artisImageView)
     }
 
     override fun getItemCount(): Int {
