@@ -19,7 +19,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/artist_item_image"
             android:layout_width="81dp"
             android:layout_height="80dp"
             android:layout_alignParentTop="true"
@@ -30,12 +30,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignBottom="@+id/item_image"
+            android:layout_alignBottom="@+id/artist_item_image"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_toStartOf="@id/item_image">
+            android:layout_toStartOf="@id/artist_item_image">
 
             <TextView
                 android:id="@+id/artist_name"
@@ -48,14 +48,14 @@
                 tools:text="Artist Name" />
 
             <TextView
-                android:id="@+id/performers"
+                android:id="@+id/artist_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/artist_name"
                 android:layout_alignParentStart="true"
                 android:height="20dp"
                 android:textSize="14sp"
-                tools:text="Performers name" />
+                tools:text="Descripcion" />
 
         </RelativeLayout>
 
