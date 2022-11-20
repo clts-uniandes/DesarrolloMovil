@@ -1,11 +1,19 @@
 package com.grupo19.ingsoftmoviles.ui.artist
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.grupo19.ingsoftmoviles.R
+import com.grupo19.ingsoftmoviles.databinding.ActivityArtistsListBinding
+import com.grupo19.ingsoftmoviles.databinding.FragmentAlbumListBinding
+import com.grupo19.ingsoftmoviles.databinding.FragmentArtistListBinding
+import com.grupo19.ingsoftmoviles.ui.adapters.ArtistAdapter
+import com.grupo19.ingsoftmoviles.viewmodel.ArtistViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,15 +27,23 @@ private const val ARG_PARAM2 = "param2"
  */
 class ArtistListFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentArtistListBinding? = null
+    private val artistViewModel by viewModels<ArtistViewModel>()
+    private val binding get() = _binding!!
+    private var thiscontext: Context? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+        artistViewModel.artists.observe(this){
+                artists -> binding.artistRecyclerView.adapter = thiscontext?.let { ArtistAdapter(it, artists) }
         }
+        artistViewModel.progressVisible.observe(this) {
+            binding.progress.visibility = if (it) View.VISIBLE else View.GONE
+        }
+
+        artistViewModel.onCreate()
+
     }
 
     override fun onCreateView(
@@ -35,7 +51,9 @@ class ArtistListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_artist_list, container, false)
+        thiscontext = container?.context
+        _binding = FragmentArtistListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     companion object {
