@@ -60,7 +60,6 @@ class AlbumListFragment : Fragment() {
         thiscontext = container?.context
         _binding = FragmentAlbumListBinding.inflate(inflater, container, false)
         return binding.root
-//        return inflater.inflate(R.layout.fragment_album_list, container, false)
     }
 
 
