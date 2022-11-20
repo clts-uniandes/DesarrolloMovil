@@ -31,4 +31,12 @@
         <item>Elektra</item>
         <item>Fania Records</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="album_fragment">Album Fragment</string>
+    <string name="artist_fragment">Artist Fragment</string>
+    <!-- to toggle the open close button of the navigation drawer -->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="collectionist_fragment">Collectionist Fragment</string>
 </resources>
