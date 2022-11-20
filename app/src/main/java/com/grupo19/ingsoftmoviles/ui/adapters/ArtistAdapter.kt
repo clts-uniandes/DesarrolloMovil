@@ -15,7 +15,7 @@ import com.google.android.material.card.MaterialCardView
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
 
-class ArtistAdapter(private val context: Context, private val artistList: List<ArtistResponse>): RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
+class ArtistAdapter(private val context: Context, private val artistList: List<ArtistResponse>, val clickListener: (ArtistResponse) -> Unit): RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.artist_item, parent, false)
@@ -34,6 +34,7 @@ class ArtistAdapter(private val context: Context, private val artistList: List<A
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .error(R.drawable.ic_broken_image))
             .into(holder.artisImageView)
+        holder.artistCardView.setOnClickListener{ clickListener(artist) }
     }
 
     override fun getItemCount(): Int {

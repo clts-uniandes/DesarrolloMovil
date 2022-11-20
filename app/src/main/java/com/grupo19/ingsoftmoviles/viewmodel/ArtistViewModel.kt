@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.grupo19.ingsoftmoviles.model.data.Artist
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
 import com.grupo19.ingsoftmoviles.model.repo.ArtistRepository
 import com.grupo19.ingsoftmoviles.ui.CountingIdlingResourceSingleton
@@ -17,6 +18,9 @@ class ArtistViewModel (private val artistRepository: ArtistRepository = ArtistRe
     private val _artists = MutableLiveData<List<ArtistResponse>>()
     val artists: LiveData<List<ArtistResponse>> get() = _artists
 
+    private val _showArtistSelected = MutableLiveData<ArtistResponse>()
+    val showArtistDetail: LiveData<ArtistResponse> get() = _showArtistSelected
+
     fun onCreate() {
         CountingIdlingResourceSingleton.increment()
         viewModelScope.launch {
@@ -25,6 +29,10 @@ class ArtistViewModel (private val artistRepository: ArtistRepository = ArtistRe
             _progressVisible.value = false
             CountingIdlingResourceSingleton.decrement()
         }
+    }
+
+    fun onArtistClick(artist: ArtistResponse) {
+        _showArtistSelected.value = artist
     }
 
 }
