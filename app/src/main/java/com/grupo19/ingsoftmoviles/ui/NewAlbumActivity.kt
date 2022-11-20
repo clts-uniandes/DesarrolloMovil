@@ -1,16 +1,18 @@
 package com.grupo19.ingsoftmoviles.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.grupo19.ingsoftmoviles.databinding.ActivityNewAlbumBinding
-
 import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
+import com.grupo19.ingsoftmoviles.databinding.ActivityNewAlbumBinding
 import com.grupo19.ingsoftmoviles.model.ResultWrapper
 import com.grupo19.ingsoftmoviles.viewmodel.NewAlbumViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewAlbumActivity : AppCompatActivity() {
 
@@ -30,6 +32,19 @@ class NewAlbumActivity : AppCompatActivity() {
         //setContentView(R.layout.new_album_item)
         setContentView(binding.root)
 
+        val dateTextBox = findViewById<TextView>(R.id.editTextDate)
+
+        dateTextBox.setOnClickListener { // getSupportFragmentManager() to
+            val datePicker = MaterialDatePicker.Builder.datePicker()
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .build()
+            datePicker.show(supportFragmentManager, "Escoja fecha")
+            datePicker.addOnPositiveButtonClickListener {
+                val dateFormatter = SimpleDateFormat("dd-MM-yyyy")
+                val date = dateFormatter.format(Date(it))
+                dateTextBox.text = date
+            }
+        }
 
         val genreDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, genres)
         val genreDropdown = findViewById<AutoCompleteTextView>(R.id.spinnerGenre)
@@ -55,7 +70,7 @@ class NewAlbumActivity : AppCompatActivity() {
         createButton.setOnClickListener {
             val name = findViewById<EditText?>(R.id.editTextName).text.toString()
             val cover = findViewById<EditText?>(R.id.editTextCoverUrl).text.toString()
-            val releaseDate = findViewById<EditText?>(R.id.editTextDate).text.toString()
+            val releaseDate = dateTextBox.text.toString()
             val description = findViewById<EditText?>(R.id.editTextDescription).text.toString()
             val genre = selectedGenre
             val recordLabel = selectedRecordLabel
