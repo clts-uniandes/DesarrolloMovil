@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/albumListFragment"
-        android:title="Albumes" />
+        android:title="Álbumes" />
 
     <item
-        android:title="Crear Album" />
+        android:id="@+id/newAlbumActivity"
+        android:title="Crear Álbum" />
 
     <item android:id="@+id/artistListFragment"
         android:title="Artistas" />

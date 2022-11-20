@@ -30,29 +30,6 @@ class NewAlbumActivity : AppCompatActivity() {
         //setContentView(R.layout.new_album_item)
         setContentView(binding.root)
 
-        /*val genreAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genres)
-        genreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        val genreSpinner = findViewById<Spinner>(R.id.spinnerGenre)
-        genreSpinner.adapter = genreAdapter
-        //genreSpinner.setSelection(1, false)
-        genreSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                selectedGenre = genres[position]
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }*/
-
-        /*val recordLabelAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, recordLabels)
-        recordLabelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        val recordLabelSpinner = findViewById<Spinner>(R.id.spinnerRecordLabel)
-        recordLabelSpinner.adapter = recordLabelAdapter
-        //recordLabelSpinner.setSelection(0, false)
-        recordLabelSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                selectedRecordLabel = recordLabels[position]
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) { }
-        }*/
 
         val genreDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, genres)
         val genreDropdown = findViewById<AutoCompleteTextView>(R.id.spinnerGenre)
