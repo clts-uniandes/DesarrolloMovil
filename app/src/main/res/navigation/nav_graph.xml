@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/albumListFragment"
         android:name="com.grupo19.ingsoftmoviles.ui.album.AlbumListFragment"
-        android:label="Albumes"
+        android:label="Álbumes"
         tools:layout="@layout/fragment_album_list" />
     <fragment
         android:id="@+id/artistListFragment"
@@ -19,4 +19,8 @@
         android:name="com.grupo19.ingsoftmoviles.ui.collectionist.CollectionistFragment"
         android:label="Colleccionistas"
         tools:layout="@layout/fragment_collectionist" />
+    <activity
+        android:id="@+id/newAlbumActivity"
+        android:name="com.grupo19.ingsoftmoviles.ui.NewAlbumActivity"
+        android:label="NewAlbumActivity" />
 </navigation>
