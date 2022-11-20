@@ -4,4 +4,6 @@ object Constants {
 
     const val ALBUM_OBJECT = "ALBUM_OBJECT"
 
+    const val ARTIST_OBJECT = "ARTIST_OBJECT"
+
 }

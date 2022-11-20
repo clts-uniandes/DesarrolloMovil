@@ -8,7 +8,7 @@ data class ArtistResponse(
     val birthDate: String,
     val albums: List<AlbumResponse>,
     val performerpizes: List<PerformerPrizesResponse>
-){
+): java.io.Serializable {
     data class AlbumResponse(
         val id: Int,
         val name: String,
@@ -17,9 +17,9 @@ data class ArtistResponse(
         val description: String,
         val genre: String,
         val recordLabel: String
-    )
+    ): java.io.Serializable
     data class PerformerPrizesResponse(
         val id: Int,
         val performerdate: String
-    )
+    ): java.io.Serializable
 }

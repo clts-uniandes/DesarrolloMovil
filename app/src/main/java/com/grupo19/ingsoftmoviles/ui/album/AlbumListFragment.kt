@@ -37,7 +37,7 @@ class AlbumListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         albumViewModel.albums.observe(this) { albums ->
-            binding.albumsRecyclerView?.adapter = thiscontext?.let { AlbumAdapter(it, albums) { albumViewModel.onAlbumClick(it) } }
+            binding.albumsRecyclerView.adapter = thiscontext?.let { AlbumAdapter(it, albums) { albumViewModel.onAlbumClick(it) } }
         }
 
         albumViewModel.progressVisible.observe(this) {

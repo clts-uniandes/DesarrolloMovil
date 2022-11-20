@@ -30,25 +30,20 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.ArtistsListActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.MainActivity2"
             android:exported="false"
             android:parentActivityName=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.ArtistDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
         </activity>
         <activity
             android:name=".ui.MainActivity"
