@@ -1,4 +1,4 @@
-package com.grupo19.ingsoftmoviles.ui
+package com.grupo19.ingsoftmoviles.ui.artist
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityArtistDetailBinding
 import com.grupo19.ingsoftmoviles.model.data.ArtistDetailAlbumListWrapper
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
+import com.grupo19.ingsoftmoviles.ui.Constants
 
 class ArtistDetailActivity: AppCompatActivity()  {
 

@@ -1,19 +1,15 @@
-package com.grupo19.ingsoftmoviles.ui
+package com.grupo19.ingsoftmoviles.ui.album
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityAsociateTrackAlbumBinding
-import com.grupo19.ingsoftmoviles.databinding.ActivityMainBinding
 import com.grupo19.ingsoftmoviles.model.data.TrackCreate
 import com.grupo19.ingsoftmoviles.model.repo.TrackRepository
 import com.grupo19.ingsoftmoviles.viewmodel.TrackViewModel
-import kotlinx.coroutines.launch
 
 class AsociateTrackAlbumActivity : AppCompatActivity() {
 

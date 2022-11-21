@@ -1,4 +1,4 @@
-package com.grupo19.ingsoftmoviles.ui
+package com.grupo19.ingsoftmoviles.ui.album
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -11,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.gson.Gson
 import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
-import com.grupo19.ingsoftmoviles.ui.VinilosApp
+import com.grupo19.ingsoftmoviles.ui.Constants
 import com.grupo19.ingsoftmoviles.ui.theme.VinilosTheme
 
-class MainActivity2: AppCompatActivity() {
+class AlbumDetailActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val album: AlbumResponse = intent.getSerializableExtra(Constants.ALBUM_OBJECT) as AlbumResponse

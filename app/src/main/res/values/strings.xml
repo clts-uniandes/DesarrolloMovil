@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Vinilos</string>
-    <string name="newalbum_title">Album</string>
     <string name="newalbum_textview_title">Crear nuevo Album</string>
     <string name="newalbum_textview_name">Nombre</string>
     <string name="newalbum_textview_cover">Carátula</string>
@@ -8,7 +7,6 @@
     <string name="newalbum_textview_description">Descripción</string>
     <string name="newalbum_textview_genre">Género</string>
     <string name="newalbum_textview_recordlabel">Sello discográfico</string>
-    <string name="newalbum_textview_empty_warning">El campo es obligatorio</string>
     <string name="title_activity_asociate_track">Asociar</string>
     <string name="input_name_track">Nombre del track</string>
     <string name="newalbum_button_create">+ Crear</string>
@@ -31,10 +29,6 @@
         <item>Elektra</item>
         <item>Fania Records</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="album_fragment">Album Fragment</string>
-    <string name="artist_fragment">Artist Fragment</string>
     <!-- to toggle the open close button of the navigation drawer -->
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
