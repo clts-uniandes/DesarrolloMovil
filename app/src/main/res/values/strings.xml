@@ -14,8 +14,8 @@
     <string name="newalbum_button_create">+ Crear</string>
     <string name="track_duracion">Duracion</string>
     <string name="button_asociar">+ Asociar</string>
-    <string name="button_cancel_pupup_track">Cancelar</string>
-    <string name="button_ok_pupup_track">Ok</string>
+    <string name="button_cancel_pupup_track">Volver a inicio</string>
+    <string name="button_ok_pupup_track">OK</string>
     <string name="button_cancel_pupup_album">Volver</string>
     <string name="button_ok_pupup_album">Asociar tracks</string>
     <string-array name="Genres">
