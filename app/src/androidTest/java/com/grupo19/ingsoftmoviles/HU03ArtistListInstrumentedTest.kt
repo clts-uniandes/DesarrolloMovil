@@ -51,17 +51,16 @@ class HU03ArtistListInstrumentedTest {
             .perform(DrawerActions.open());
 
         onView(withId(R.id.nav_view))
-            .perform(NavigationViewActions.navigateTo(R.id.artistListFragment));
+            .perform(NavigationViewActions.navigateTo(R.id.artistListFragment))
 
         onView(withId(R.id.artist_recycler_view))
+            .check(ViewAssertions.matches(isDisplayed()))
             .perform(swipeUp())
             .perform(swipeDown())
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<ArtistAdapter.ArtistViewHolder>
                     (0, click()))
 
-        onView(withId(R.id.card_artist_detail_primary_title))
-            .check(ViewAssertions.matches(withText(Matchers.containsString("Blades"))))
     }
 
 
