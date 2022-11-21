@@ -1,4 +1,4 @@
-package com.grupo19.ingsoftmoviles.ui
+package com.grupo19.ingsoftmoviles.ui.album
 
 import android.os.Bundle
 import android.view.View

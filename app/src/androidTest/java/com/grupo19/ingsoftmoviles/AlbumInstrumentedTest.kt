@@ -1,20 +1,12 @@
 package com.grupo19.ingsoftmoviles
 
-import androidx.test.core.app.ActivityScenario
-import androidx.test.core.app.ActivityScenario.ActivityAction
 import androidx.test.espresso.Espresso.*
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.IdlingResource
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.grupo19.ingsoftmoviles.ui.CountingIdlingResourceSingleton
-import com.grupo19.ingsoftmoviles.ui.MainActivity
-import com.grupo19.ingsoftmoviles.ui.adapters.AlbumAdapter
-import org.hamcrest.Matchers.containsString
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule

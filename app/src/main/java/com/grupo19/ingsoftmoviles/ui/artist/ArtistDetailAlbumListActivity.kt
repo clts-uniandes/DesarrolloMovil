@@ -1,10 +1,11 @@
-package com.grupo19.ingsoftmoviles.ui
+package com.grupo19.ingsoftmoviles.ui.artist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.grupo19.ingsoftmoviles.databinding.ActivityArtistDetailAlbumListBinding
 import com.grupo19.ingsoftmoviles.model.data.ArtistDetailAlbumListWrapper
+import com.grupo19.ingsoftmoviles.ui.Constants
 import com.grupo19.ingsoftmoviles.ui.adapters.ArtistDetailAlbumAdapter
 
 class ArtistDetailAlbumListActivity: AppCompatActivity()  {

@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import com.grupo19.ingsoftmoviles.databinding.FragmentAlbumListBinding
 import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 import com.grupo19.ingsoftmoviles.ui.Constants
-import com.grupo19.ingsoftmoviles.ui.MainActivity2
 import com.grupo19.ingsoftmoviles.ui.adapters.AlbumAdapter
 import com.grupo19.ingsoftmoviles.viewmodel.AlbumViewModel
 
@@ -64,7 +63,7 @@ class AlbumListFragment : Fragment() {
 
 
     private fun showAlbumDetail(album: AlbumResponse) {
-        val intent = Intent(thiscontext, MainActivity2::class.java).apply {
+        val intent = Intent(thiscontext, AlbumDetailActivity::class.java).apply {
             putExtra(Constants.ALBUM_OBJECT, album)
         }
         startActivity(intent)

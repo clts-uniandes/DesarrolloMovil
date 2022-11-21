@@ -10,9 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.grupo19.ingsoftmoviles.databinding.FragmentArtistListBinding
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
-import com.grupo19.ingsoftmoviles.ui.ArtistDetailActivity
 import com.grupo19.ingsoftmoviles.ui.Constants
-import com.grupo19.ingsoftmoviles.ui.MainActivity2
 import com.grupo19.ingsoftmoviles.ui.adapters.ArtistAdapter
 import com.grupo19.ingsoftmoviles.viewmodel.ArtistViewModel
 

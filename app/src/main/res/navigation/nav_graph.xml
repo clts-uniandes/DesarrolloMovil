@@ -21,6 +21,6 @@
         tools:layout="@layout/fragment_collectionist" />
     <activity
         android:id="@+id/newAlbumActivity"
-        android:name="com.grupo19.ingsoftmoviles.ui.NewAlbumActivity"
+        android:name="com.grupo19.ingsoftmoviles.ui.album.NewAlbumActivity"
         android:label="NewAlbumActivity" />
 </navigation>
