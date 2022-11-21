@@ -56,7 +56,7 @@ class NewAlbumActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        val labelDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, genres)
+        val labelDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, recordLabels)
         val recordLabelDropdown = findViewById<AutoCompleteTextView>(R.id.spinnerRecordLabel)
         recordLabelDropdown.setAdapter(labelDropdownAdapter)
         recordLabelDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -77,7 +77,6 @@ class NewAlbumActivity : AppCompatActivity() {
             newAlbumViewModel.createAlbum(name = name, cover = cover, releaseDate = releaseDate,
                 description = description, genre = genre, recordLabel = recordLabel)
 
-            showAlert("Album guardado", "El album ha sido almacenado con exito, ahora puede verlo en la lista de albumes o asociar canciones a este.")
 
             //showToast("Called")
         }
@@ -86,7 +85,7 @@ class NewAlbumActivity : AppCompatActivity() {
             when (it) {
                 is ResultWrapper.Loading -> {  }
                 is ResultWrapper.Success -> {
-                    showToast("Success")
+                    showAlert("Album guardado", "El album ha sido almacenado con exito, ahora puede verlo en la lista de albumes o asociar canciones a este.")
                 }
                 is ResultWrapper.Error -> {
                     showToast("Error al crear album")
