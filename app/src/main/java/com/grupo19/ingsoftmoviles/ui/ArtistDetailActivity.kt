@@ -1,5 +1,6 @@
 package com.grupo19.ingsoftmoviles.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
@@ -9,6 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityArtistDetailBinding
+import com.grupo19.ingsoftmoviles.model.data.ArtistDetailAlbumListWrapper
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
 
 class ArtistDetailActivity: AppCompatActivity()  {
@@ -26,6 +28,7 @@ class ArtistDetailActivity: AppCompatActivity()  {
         setHeader(artis.name)
         setImage(artis.image)
         setBody(artis.name, artis.birthDate, artis.description)
+        setActionForButtons(artis.albums)
     }
 
     private fun setHeader(name: String) {
@@ -49,5 +52,15 @@ class ArtistDetailActivity: AppCompatActivity()  {
         binding.cardArtistDetailSecondarySupportingText.text = description
     }
 
+    private fun setActionForButtons(albums: List<ArtistResponse.AlbumResponse>) {
+        binding.artistDetailAlbumButton.setOnClickListener { showArtistDetailAlbumList(albums) }
+    }
+
+    private fun showArtistDetailAlbumList(albums: List<ArtistResponse.AlbumResponse>) {
+        val intent = Intent(this, ArtistDetailAlbumListActivity::class.java).apply {
+            putExtra(Constants.ALBUMS_LIST, ArtistDetailAlbumListWrapper(albums))
+        }
+        startActivity(intent)
+    }
 
 }

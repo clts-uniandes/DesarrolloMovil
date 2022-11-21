@@ -121,17 +121,19 @@
         app:layout_constraintTop_toBottomOf="@id/card_artist_detail">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/artist_detail_album_button"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Albumes" />
+            tools:text="Albumes" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/artist_detail_prizes_xd"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Premios" />
+            tools:text="Premios" />
     </LinearLayout>
 
 
