@@ -40,7 +40,7 @@ class NewAlbumActivity : AppCompatActivity() {
                 .build()
             datePicker.show(supportFragmentManager, "Escoja fecha")
             datePicker.addOnPositiveButtonClickListener {
-                val dateFormatter = SimpleDateFormat("dd-MM-yyyy")
+                val dateFormatter = SimpleDateFormat("yyyy-MM-dd")
                 val date = dateFormatter.format(Date(it))
                 dateTextBox.text = date
             }
