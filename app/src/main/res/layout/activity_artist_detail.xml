@@ -126,14 +126,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            tools:text="Albumes" />
+            android:text="@string/button_albumes"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/artist_detail_prizes_xd"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Premios" />
+            android:text="@string/button_premios"
+            android:visibility="invisible"/>
+
     </LinearLayout>
 
 
