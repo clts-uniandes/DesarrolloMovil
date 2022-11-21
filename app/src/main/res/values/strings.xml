@@ -39,4 +39,6 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="collectionist_fragment">Collectionist Fragment</string>
+    <string name="button_albumes">Albumes</string>
+    <string name="button_premios">Premios</string>
 </resources>
