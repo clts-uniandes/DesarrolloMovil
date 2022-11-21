@@ -46,6 +46,14 @@
                 android:value=".ui.HomeActivity" />
         </activity>
         <activity
+            android:name=".ui.ArtistDetailAlbumListActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
+        </activity>
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <meta-data
