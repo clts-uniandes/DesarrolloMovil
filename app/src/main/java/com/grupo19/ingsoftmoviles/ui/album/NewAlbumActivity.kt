@@ -1,16 +1,18 @@
-package com.grupo19.ingsoftmoviles.ui
+package com.grupo19.ingsoftmoviles.ui.album
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.grupo19.ingsoftmoviles.databinding.ActivityNewAlbumBinding
-
 import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
+import com.grupo19.ingsoftmoviles.databinding.ActivityNewAlbumBinding
 import com.grupo19.ingsoftmoviles.model.ResultWrapper
 import com.grupo19.ingsoftmoviles.viewmodel.NewAlbumViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewAlbumActivity : AppCompatActivity() {
 
@@ -30,29 +32,19 @@ class NewAlbumActivity : AppCompatActivity() {
         //setContentView(R.layout.new_album_item)
         setContentView(binding.root)
 
-        /*val genreAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genres)
-        genreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        val genreSpinner = findViewById<Spinner>(R.id.spinnerGenre)
-        genreSpinner.adapter = genreAdapter
-        //genreSpinner.setSelection(1, false)
-        genreSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                selectedGenre = genres[position]
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }*/
+        val dateTextBox = findViewById<TextView>(R.id.editTextDate)
 
-        /*val recordLabelAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, recordLabels)
-        recordLabelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        val recordLabelSpinner = findViewById<Spinner>(R.id.spinnerRecordLabel)
-        recordLabelSpinner.adapter = recordLabelAdapter
-        //recordLabelSpinner.setSelection(0, false)
-        recordLabelSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                selectedRecordLabel = recordLabels[position]
+        dateTextBox.setOnClickListener { // getSupportFragmentManager() to
+            val datePicker = MaterialDatePicker.Builder.datePicker()
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .build()
+            datePicker.show(supportFragmentManager, "Escoja fecha")
+            datePicker.addOnPositiveButtonClickListener {
+                val dateFormatter = SimpleDateFormat("yyyy-MM-dd")
+                val date = dateFormatter.format(Date(it))
+                dateTextBox.text = date
             }
-            override fun onNothingSelected(parent: AdapterView<*>?) { }
-        }*/
+        }
 
         val genreDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, genres)
         val genreDropdown = findViewById<AutoCompleteTextView>(R.id.spinnerGenre)
@@ -64,7 +56,7 @@ class NewAlbumActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        val labelDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, genres)
+        val labelDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, recordLabels)
         val recordLabelDropdown = findViewById<AutoCompleteTextView>(R.id.spinnerRecordLabel)
         recordLabelDropdown.setAdapter(labelDropdownAdapter)
         recordLabelDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -78,14 +70,13 @@ class NewAlbumActivity : AppCompatActivity() {
         createButton.setOnClickListener {
             val name = findViewById<EditText?>(R.id.editTextName).text.toString()
             val cover = findViewById<EditText?>(R.id.editTextCoverUrl).text.toString()
-            val releaseDate = findViewById<EditText?>(R.id.editTextDate).text.toString()
+            val releaseDate = dateTextBox.text.toString()
             val description = findViewById<EditText?>(R.id.editTextDescription).text.toString()
             val genre = selectedGenre
             val recordLabel = selectedRecordLabel
             newAlbumViewModel.createAlbum(name = name, cover = cover, releaseDate = releaseDate,
                 description = description, genre = genre, recordLabel = recordLabel)
 
-            showAlert("Album guardado", "El album ha sido almacenado con exito, ahora puede verlo en la lista de albumes o asociar canciones a este.")
 
             //showToast("Called")
         }
@@ -94,7 +85,7 @@ class NewAlbumActivity : AppCompatActivity() {
             when (it) {
                 is ResultWrapper.Loading -> {  }
                 is ResultWrapper.Success -> {
-                    showToast("Success")
+                    showAlert("Album guardado", "El album ha sido almacenado con exito, ahora puede verlo en la lista de albumes o asociar canciones a este.")
                 }
                 is ResultWrapper.Error -> {
                     showToast("Error al crear album")

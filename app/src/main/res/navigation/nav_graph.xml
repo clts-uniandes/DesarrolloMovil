@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/albumListFragment">
+    <fragment
+        android:id="@+id/albumListFragment"
+        android:name="com.grupo19.ingsoftmoviles.ui.album.AlbumListFragment"
+        android:label="Álbumes"
+        tools:layout="@layout/fragment_album_list" />
+    <fragment
+        android:id="@+id/artistListFragment"
+        android:name="com.grupo19.ingsoftmoviles.ui.artist.ArtistListFragment"
+        android:label="Artistas"
+        tools:layout="@layout/fragment_artist_list" />
+    <fragment
+        android:id="@+id/collectionistFragment"
+        android:name="com.grupo19.ingsoftmoviles.ui.collectionist.CollectionistFragment"
+        android:label="Colleccionistas"
+        tools:layout="@layout/fragment_collectionist" />
+    <activity
+        android:id="@+id/newAlbumActivity"
+        android:name="com.grupo19.ingsoftmoviles.ui.album.NewAlbumActivity"
+        android:label="NewAlbumActivity" />
+</navigation>

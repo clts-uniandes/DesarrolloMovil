@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.grupo19.ingsoftmoviles.R
-import com.grupo19.ingsoftmoviles.model.data.Album
 import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 
 class AlbumAdapter(private val context: Context, private val albumsList: List<AlbumResponse>, val clickListener: (AlbumResponse) -> Unit): RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {

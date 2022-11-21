@@ -14,41 +14,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinilos"
-        tools:targetApi="24">
+        tools:targetApi="s">
         <activity
-            android:name=".ui.MainActivity2"
+            android:name=".ui.HomeActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.artist.ArtistDetailActivity"
             android:exported="false"
-            android:parentActivityName=".ui.MainActivity">
+            android:parentActivityName=".ui.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value=".ui.HomeActivity" />
         </activity>
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+            android:name=".ui.artist.ArtistDetailAlbumListActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.HomeActivity">
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
         </activity>
         <activity
-            android:name=".ui.NewAlbumActivity"
+            android:name=".ui.album.NewAlbumActivity"
             android:exported="true"
-            android:theme="@style/Theme.Vinilos">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+            android:theme="@style/Theme.Vinilos"
+            android:parentActivityName=".ui.HomeActivity"
+            >
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ui.album.AlbumDetailActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Vinilos"
+            android:parentActivityName=".ui.HomeActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
         </activity>
     </application>
 

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Vinilos</string>
-    <string name="newalbum_title">Album</string>
     <string name="newalbum_textview_title">Crear nuevo Album</string>
     <string name="newalbum_textview_name">Nombre</string>
     <string name="newalbum_textview_cover">Carátula</string>
@@ -8,14 +7,13 @@
     <string name="newalbum_textview_description">Descripción</string>
     <string name="newalbum_textview_genre">Género</string>
     <string name="newalbum_textview_recordlabel">Sello discográfico</string>
-    <string name="newalbum_textview_empty_warning">El campo es obligatorio</string>
     <string name="title_activity_asociate_track">Asociar</string>
     <string name="input_name_track">Nombre del track</string>
     <string name="newalbum_button_create">+ Crear</string>
     <string name="track_duracion">Duracion</string>
     <string name="button_asociar">+ Asociar</string>
-    <string name="button_cancel_pupup_track">Cancelar</string>
-    <string name="button_ok_pupup_track">Ok</string>
+    <string name="button_cancel_pupup_track">Volver a inicio</string>
+    <string name="button_ok_pupup_track">OK</string>
     <string name="button_cancel_pupup_album">Volver</string>
     <string name="button_ok_pupup_album">Asociar tracks</string>
     <string-array name="Genres">
@@ -31,4 +29,10 @@
         <item>Elektra</item>
         <item>Fania Records</item>
     </string-array>
+    <!-- to toggle the open close button of the navigation drawer -->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="collectionist_fragment">Collectionist Fragment</string>
+    <string name="button_albumes">Albumes</string>
+    <string name="button_premios">Premios</string>
 </resources>
