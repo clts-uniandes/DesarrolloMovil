@@ -16,9 +16,9 @@
         tools:layout="@layout/fragment_artist_list" />
     <fragment
         android:id="@+id/collectionistFragment"
-        android:name="com.grupo19.ingsoftmoviles.ui.collectionist.CollectionistFragment"
+        android:name="com.grupo19.ingsoftmoviles.ui.collectionist.CollectionistListFragment"
         android:label="Colleccionistas"
-        tools:layout="@layout/fragment_collectionist" />
+        tools:layout="@layout/fragment_collectionist_list" />
     <activity
         android:id="@+id/newAlbumActivity"
         android:name="com.grupo19.ingsoftmoviles.ui.album.NewAlbumActivity"
