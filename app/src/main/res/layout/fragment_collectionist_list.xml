@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.collectionist.CollectionistListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress"
         android:layout_width="wrap_content"
@@ -14,7 +13,7 @@
         android:indeterminate="true" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/collectionists_recycler_view"
+        android:id="@+id/collectors_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

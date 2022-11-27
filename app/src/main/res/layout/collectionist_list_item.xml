@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/collectionist_card"
+    android:id="@+id/collector_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
@@ -15,12 +15,12 @@
     card_view:contentPadding="0dp">
 
     <RelativeLayout
-        android:id="@+id/collectionist_item_relativelayout"
-        android:layout_width="0dp"
+        android:id="@+id/collector_item_relativelayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/collectionist_arrow_image"
+            android:id="@+id/collector_arrow_image"
             android:layout_width="81dp"
             android:layout_height="80dp"
             android:layout_alignParentTop="true"
@@ -37,27 +37,27 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_toStartOf="@id/collectionist_arrow_image">
+            android:layout_toStartOf="@id/collector_arrow_image">
 
             <TextView
-                android:id="@+id/collectionist_name"
+                android:id="@+id/collector_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:height="24dp"
-                android:textSize="26sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                tools:text="Collectionist name" />
+                tools:text="Collector's name" />
 
             <TextView
-                android:id="@+id/collectionist_email"
+                android:id="@+id/collector_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/collectionist_name"
+                android:layout_below="@id/collector_name"
                 android:layout_alignParentStart="true"
                 android:height="20dp"
                 android:textSize="14sp"
-                tools:text="Collectionist email" />
+                tools:text="Collector's email" />
 
         </RelativeLayout>
 
