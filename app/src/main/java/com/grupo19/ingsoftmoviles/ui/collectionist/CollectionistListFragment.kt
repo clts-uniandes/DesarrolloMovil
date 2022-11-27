@@ -1,33 +1,43 @@
 package com.grupo19.ingsoftmoviles.ui.collectionist
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.grupo19.ingsoftmoviles.R
+import androidx.fragment.app.viewModels
+import com.grupo19.ingsoftmoviles.databinding.FragmentCollectionistListBinding
+import com.grupo19.ingsoftmoviles.ui.adapters.CollectorListAdapter
+import com.grupo19.ingsoftmoviles.viewmodel.CollectorListViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
- * A simple [Fragment] subclass.
- * Use the [CollectionistListFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Collectors List [Fragment] subclass, for HomeActivity.
  */
 class CollectionistListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentCollectionistListBinding? = null
+    private val collectorListViewModel by viewModels<CollectorListViewModel>()
+    private val binding get() = _binding!!
+    private var thisContext: Context? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+        collectorListViewModel.collectors.observe(this) {
+            collectors -> binding.collectorsRecyclerView.adapter = thisContext?.let { CollectorListAdapter(it, collectors) { collectorListViewModel.onCollectorClick(it)} }
         }
+
+        collectorListViewModel.progressVisible.observe(this) {
+            binding.progress.visibility = if (it) View.VISIBLE else View.GONE
+        }
+
+        collectorListViewModel.showSelectedCollector.observe(this) {
+            /* showCollectorDetail(it)*/
+        }
+
+        collectorListViewModel.onCreate()
+
     }
 
     override fun onCreateView(
@@ -35,25 +45,29 @@ class CollectionistListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_collectionist_list, container, false)
+        thisContext = container?.context
+        _binding = FragmentCollectionistListBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    /*private fun showCollectorDetail(args/id para invocacion detalle coleccionista, NO USAR item de lista) {
+        val intent = Intent(thiscontext, CollectorDetailActivity::class.java).apply {
+            putExtra(Constants.COLLECTOR?_OBJECT, album)????
+        }
+        startActivity(intent)
+    }*/
 
     companion object {
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CollectionistFragment.
+         * @return A new instance of CollectorListFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             CollectionistListFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
     }
