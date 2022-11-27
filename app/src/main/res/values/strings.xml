@@ -35,4 +35,5 @@
     <string name="collectionist_fragment">Collectionist Fragment</string>
     <string name="button_albumes">Albumes</string>
     <string name="button_premios">Premios</string>
+    <string name="accessibility_collectionist_arrow">Flecha guia hacia detalle de coleccionista</string>
 </resources>
