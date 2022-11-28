@@ -64,7 +64,7 @@ class AlbumListFragment : Fragment() {
 
     private fun showAlbumDetail(album: AlbumResponse) {
         val intent = Intent(thiscontext, AlbumDetailActivity::class.java).apply {
-            putExtra(Constants.ALBUM_OBJECT, album)
+            putExtra(Constants.ALBUM_ID, album.id)
         }
         startActivity(intent)
     }

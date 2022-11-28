@@ -1,6 +1,6 @@
 package com.grupo19.ingsoftmoviles.model.data
 
-data class AlbumResponse(
+data class AlbumResponse (
     val id: Int,
     val name: String,
     val cover: String,
