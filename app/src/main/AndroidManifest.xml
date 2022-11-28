@@ -65,6 +65,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.HomeActivity" />
         </activity>
+        <activity
+            android:name=".ui.album.AsociateTrackAlbumActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Vinilos"
+            android:parentActivityName=".ui.HomeActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

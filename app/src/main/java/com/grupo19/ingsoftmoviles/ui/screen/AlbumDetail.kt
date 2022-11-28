@@ -1,22 +1,26 @@
 package com.grupo19.ingsoftmoviles.ui.screen
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Divider
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
+import com.grupo19.ingsoftmoviles.ui.Constants
+import com.grupo19.ingsoftmoviles.ui.album.AsociateTrackAlbumActivity
 
 
 @Composable
@@ -27,6 +31,7 @@ fun AlbumDetail(scrollState: ScrollState, navController: NavController, album: A
             AlbumHeaderImage(image = image , description = "Album header")
             AlbumTitle(title = album.name, artists = album.performers, genre = album.genre, year = album.releaseDate)
             TrackList(album.tracks)
+            AssociateTrackButton(album.id)
         }
     }
 }
@@ -116,4 +121,34 @@ fun TrackList(tracks: List<AlbumResponse.TrackResponse>){
 
     }
 
+}
+
+@Composable
+fun AssociateTrackButton(id: Int){
+    Column(modifier = Modifier.padding(15.dp).fillMaxWidth().wrapContentWidth(Alignment.End)){
+        val context = LocalContext.current
+        val intent = Intent(context, AsociateTrackAlbumActivity::class.java)
+        intent.putExtra(Constants.ALBUM_ID, id)
+
+        Button(
+            onClick = { context.startActivity(intent) },
+            // Uses ButtonDefaults.ContentPadding by default
+            contentPadding = PaddingValues(
+                start = 20.dp,
+                top = 12.dp,
+                end = 20.dp,
+                bottom = 12.dp
+            )
+        ) {
+            // Inner content including an icon and a text label
+            Icon(
+                Icons.Filled.Add,
+                contentDescription = "Add",
+                modifier = Modifier.size(ButtonDefaults.IconSize)
+            )
+            Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+            Text("AGREGAR TRACK")
+        }
+
+    }
 }

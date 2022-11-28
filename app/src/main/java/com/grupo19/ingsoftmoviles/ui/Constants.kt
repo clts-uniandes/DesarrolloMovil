@@ -8,4 +8,8 @@ object Constants {
 
     const val ARTIST_OBJECT = "ARTIST_OBJECT"
 
+    const val ALBUM_ID = "ALBUM_ID"
+
+    const val ALBUM_ID_ERROR = -1
+
 }
