@@ -38,7 +38,7 @@ class HomeActivity : AppCompatActivity() {
             setOf(
                 R.id.albumListFragment,
                 R.id.artistListFragment,
-                R.id.collectionistFragment,
+                R.id.collectorFragment,
             ), drawerLayout
         )
 

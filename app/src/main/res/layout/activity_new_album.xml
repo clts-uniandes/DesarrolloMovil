@@ -160,7 +160,8 @@
                     android:id="@+id/spinnerGenre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"/>
+                    android:inputType="none"
+                    android:hint="@string/newAlbum_genre_hint"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,7 +182,8 @@
                     android:id="@+id/spinnerRecordLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"/>
+                    android:inputType="none"
+                    android:hint="@string/newAlbum_recordLabel_hint"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -1,4 +1,4 @@
-package com.grupo19.ingsoftmoviles.ui.collectionist
+package com.grupo19.ingsoftmoviles.ui.collector
 
 import android.content.Context
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.grupo19.ingsoftmoviles.databinding.FragmentCollectionistListBinding
+import com.grupo19.ingsoftmoviles.databinding.FragmentCollectorListBinding
 import com.grupo19.ingsoftmoviles.ui.adapters.CollectorListAdapter
 import com.grupo19.ingsoftmoviles.viewmodel.CollectorListViewModel
 
@@ -15,8 +15,8 @@ import com.grupo19.ingsoftmoviles.viewmodel.CollectorListViewModel
 /**
  * Collectors List [Fragment] subclass, for HomeActivity.
  */
-class CollectionistListFragment : Fragment() {
-    private var _binding: FragmentCollectionistListBinding? = null
+class CollectorListFragment : Fragment() {
+    private var _binding: FragmentCollectorListBinding? = null
     private val collectorListViewModel by viewModels<CollectorListViewModel>()
     private val binding get() = _binding!!
     private var thisContext: Context? = null
@@ -43,10 +43,10 @@ class CollectionistListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         thisContext = container?.context
-        _binding = FragmentCollectionistListBinding.inflate(inflater, container, false)
+        _binding = FragmentCollectorListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -66,7 +66,7 @@ class CollectionistListFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() =
-            CollectionistListFragment().apply {
+            CollectorListFragment().apply {
                 arguments = Bundle().apply {
                 }
             }

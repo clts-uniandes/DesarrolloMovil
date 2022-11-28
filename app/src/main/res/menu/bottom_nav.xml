@@ -10,7 +10,7 @@
         android:title="Artistas"
         android:icon="@drawable/ic_baseline_stars_24" />
 
-    <item android:id="@+id/collectionistFragment"
-        android:title="Colleccionistas"
+    <item android:id="@+id/collectorFragment"
+        android:title="@string/nav_collector_name"
         android:icon="@drawable/ic_baseline_people_24" />
 </menu>

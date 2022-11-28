@@ -32,8 +32,13 @@
     <!-- to toggle the open close button of the navigation drawer -->
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
-    <string name="collectionist_fragment">Collectionist Fragment</string>
+
     <string name="button_albumes">Albumes</string>
     <string name="button_premios">Premios</string>
-    <string name="accessibility_collectionist_arrow">Flecha guia hacia detalle de coleccionista</string>
+    <string name="accessibility_collector_detail_show">Flecha guia hacia detalle de coleccionista</string>
+    <string name="nav_collector_name">Colleccionistas</string>
+    <string name="drawer_collector_name">Colleccionistas</string>
+    <string name="drawer_createAlbum_name">Crear Álbum</string>
+    <string name="newAlbum_genre_hint">Seleccione un género</string>
+    <string name="newAlbum_recordLabel_hint">Seleccione compañia discográfica</string>
 </resources>
