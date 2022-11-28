@@ -17,7 +17,7 @@ class CollectorListAdapter(private val context: Context, private val collectorsL
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectorViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.collectionist_list_item, parent, false)
+            .inflate(R.layout.collector_list_item, parent, false)
         return CollectorViewHolder(adapterLayout)
     }
 

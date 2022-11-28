@@ -25,9 +25,10 @@
             android:layout_height="80dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:contentDescription="@string/accessibility_collector_detail_show"
             android:importantForAccessibility="yes"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/accessibility_collectionist_arrow"/>
+            card_view:srcCompat="@android:drawable/ic_dialog_info" />
         <!--observer importantForAccessibility-->
 
         <RelativeLayout

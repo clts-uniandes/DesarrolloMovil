@@ -6,11 +6,11 @@
 
     <item
         android:id="@+id/newAlbumActivity"
-        android:title="Crear Álbum" />
+        android:title="@string/drawer_createAlbum_name" />
 
     <item android:id="@+id/artistListFragment"
         android:title="Artistas" />
 
-    <item android:id="@+id/collectionistFragment"
-        android:title="Colleccionistas" />
+    <item android:id="@+id/collectorFragment"
+        android:title="@string/drawer_collector_name" />
 </menu>
