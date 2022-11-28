@@ -7,8 +7,8 @@ import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 import com.grupo19.ingsoftmoviles.ui.screen.AlbumDetail
 
 @Composable
-fun VinilosApp(album:AlbumResponse) {
+fun VinilosApp(albumId:Int) {
     val scrollState = rememberScrollState()
     val navController = rememberNavController()
-    AlbumDetail(scrollState = scrollState, navController = navController, album = album)
+    AlbumDetail(scrollState = scrollState, navController = navController, albumId = albumId)
 }

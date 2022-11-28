@@ -1,6 +1,8 @@
 package com.grupo19.ingsoftmoviles.ui.screen
 
 import android.content.Intent
+import android.view.View
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
@@ -16,22 +18,34 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 import com.grupo19.ingsoftmoviles.ui.Constants
 import com.grupo19.ingsoftmoviles.ui.album.AsociateTrackAlbumActivity
+import com.grupo19.ingsoftmoviles.viewmodel.AlbumDetailViewModel
 
 
 @Composable
-fun AlbumDetail(scrollState: ScrollState, navController: NavController, album: AlbumResponse){
+fun AlbumDetail(scrollState: ScrollState, navController: NavController, albumId: Int) {
+
+    val albumDetailViewModel: AlbumDetailViewModel = viewModel()
+    albumDetailViewModel.onCreate(albumId)
+    val album: AlbumResponse = albumDetailViewModel.album.value
+    val showProgressIndicator: Boolean = albumDetailViewModel.progressVisible.value
+
     Scaffold() {
         Column {
-            val image: Painter = rememberAsyncImagePainter(album.cover)
-            AlbumHeaderImage(image = image , description = "Album header")
-            AlbumTitle(title = album.name, artists = album.performers, genre = album.genre, year = album.releaseDate)
-            TrackList(album.tracks)
-            AssociateTrackButton(album.id)
+            if(showProgressIndicator) {
+                CircularProgressIndicator()
+            } else {
+                val image: Painter = rememberAsyncImagePainter(album.cover)
+                AlbumHeaderImage(image = image , description = "Album header")
+                AlbumTitle(title = album.name, artists = album.performers, genre = album.genre, year = album.releaseDate)
+                TrackList(album.tracks)
+                AssociateTrackButton(album.id)
+            }
         }
     }
 }

@@ -10,6 +10,8 @@ class AlbumRepository(private val albumServiceAdapter: AlbumServiceAdapter = Alb
 
     suspend fun getAlbums(): List<AlbumResponse> = albumServiceAdapter.getAlbums()
 
+    suspend fun getAlbumDetail(albumId: Int): AlbumResponse = albumServiceAdapter.getAlbumDetail(albumId)
+
     suspend fun createAlbum(albumCreate: AlbumCreate): Response<AlbumResponse>? {
         return albumServiceAdapter.createAlbum(albumCreate)
     }

@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitBuilder {
 
-    private val BASE_URL = "https://isam-grupo19-vynils-back.herokuapp.com"
+    private val BASE_URL = "http://34.130.203.231:3000"
 
     fun<T> createClient(clazz: Class<T>, baseUrl: String = BASE_URL): T {
         val mHttpLoggingInterceptor = HttpLoggingInterceptor()

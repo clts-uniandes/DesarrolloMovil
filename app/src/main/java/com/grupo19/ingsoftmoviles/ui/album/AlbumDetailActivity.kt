@@ -9,16 +9,16 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.google.gson.Gson
-import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 import com.grupo19.ingsoftmoviles.ui.Constants
 import com.grupo19.ingsoftmoviles.ui.theme.VinilosTheme
 
 class AlbumDetailActivity: AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val album: AlbumResponse = intent.getSerializableExtra(Constants.ALBUM_OBJECT) as AlbumResponse
-        println(Gson().toJson(album))
+
+        val albumId: Int = intent.extras?.getInt(Constants.ALBUM_ID)?.toInt() ?: Constants.ALBUM_ID_ERROR
+        println("Este es el albumID: " + albumId)
         setContent {
             VinilosTheme {
                 // A surface container using the 'background' color from the theme
@@ -26,7 +26,7 @@ class AlbumDetailActivity: AppCompatActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    VinilosApp(album=album)
+                    VinilosApp(albumId=albumId)
                 }
             }
         }

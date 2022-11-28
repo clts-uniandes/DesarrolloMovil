@@ -83,7 +83,8 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
             }
             .setPositiveButton(buttonOk) { dialog, which ->
                 // Respond to positive button press
-                val intent = Intent(context, HomeActivity::class.java)
+                val intent = Intent(context, AlbumDetailActivity::class.java)
+                intent.putExtra(Constants.ALBUM_ID, albumId)
                 context.startActivity(intent)
             }
             .show()

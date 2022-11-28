@@ -7,6 +7,7 @@ import retrofit2.Response
 interface AlbumServiceAdapter {
 
     suspend fun getAlbums(): List<AlbumResponse>
+    suspend fun getAlbumDetail(albumId: Int): AlbumResponse
     suspend fun createAlbum(newAlbum: AlbumCreate): Response<AlbumResponse>
 
 }
