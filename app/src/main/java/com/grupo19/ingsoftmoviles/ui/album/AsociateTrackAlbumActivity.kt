@@ -1,14 +1,16 @@
 package com.grupo19.ingsoftmoviles.ui.album
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityAsociateTrackAlbumBinding
 import com.grupo19.ingsoftmoviles.model.data.TrackCreate
 import com.grupo19.ingsoftmoviles.model.repo.TrackRepository
+import com.grupo19.ingsoftmoviles.ui.Constants
+import com.grupo19.ingsoftmoviles.ui.Constants.ALBUM_ID_ERROR
 import com.grupo19.ingsoftmoviles.viewmodel.TrackViewModel
 
 class AsociateTrackAlbumActivity : AppCompatActivity() {
@@ -23,8 +25,10 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
 
         binding = ActivityAsociateTrackAlbumBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val albumId: Int = intent.extras?.getInt(Constants.ALBUM_ID)?.toInt() ?: ALBUM_ID_ERROR
+
         binding.buttonAsociate.setOnClickListener{
-            val id_album = 11
             var validateName: Boolean = false
             var validateDuration: Boolean = false
 
@@ -43,7 +47,7 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
                 binding.trackDurationLy.setError(null)
             }
             if(validateName && validateDuration){
-                createTrack(id_album, binding.trackName.text.toString(), binding.trackDuration.text.toString())
+                createTrack(albumId, binding.trackName.text.toString(), binding.trackDuration.text.toString())
             }
         }
         trackViewModel.statusMessage.observe(this){
@@ -58,10 +62,9 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
 
         }
     }
-    fun createTrack(id_album:Int, name_track:String, duration_track:String){
-        val repository : TrackRepository = TrackRepository()
+    fun createTrack(albumId:Int, name_track:String, duration_track:String){
         val trackCreate : TrackCreate = TrackCreate(name_track, duration_track)
-        trackViewModel.onCreateTrack(11, trackCreate)
+        trackViewModel.onCreateTrack(albumId, trackCreate)
     }
     fun showAlert(title:String,message:String){
         val buttonCancel = getString(R.string.button_cancel_pupup_track)
