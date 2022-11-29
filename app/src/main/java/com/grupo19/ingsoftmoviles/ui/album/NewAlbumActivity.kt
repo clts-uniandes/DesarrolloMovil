@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.interaction.PressInteraction
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
@@ -28,9 +29,6 @@ class NewAlbumActivity : AppCompatActivity() {
         val genres = resources.getStringArray(R.array.Genres)
         val recordLabels = resources.getStringArray(R.array.RecordLabels)
 
-        var selectedGenre : String = genres[0]
-        var selectedRecordLabel : String = recordLabels[0]
-
         super.onCreate(savedInstanceState)
         binding = ActivityNewAlbumBinding.inflate(layoutInflater)
         //setContentView(R.layout.new_album_item)
@@ -51,38 +49,25 @@ class NewAlbumActivity : AppCompatActivity() {
         }
 
         val genreDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, genres)
-        val genreDropdown = findViewById<AutoCompleteTextView>(R.id.spinnerGenre)
+        val genreDropdown = binding.spinnerGenre
         genreDropdown.setAdapter(genreDropdownAdapter)
-        genreDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                selectedGenre = genres[position]
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }
 
         val labelDropdownAdapter = ArrayAdapter(this,R.layout.material_list_item, recordLabels)
         val recordLabelDropdown = findViewById<AutoCompleteTextView>(R.id.spinnerRecordLabel)
         recordLabelDropdown.setAdapter(labelDropdownAdapter)
-        recordLabelDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                selectedRecordLabel = recordLabels[position]
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }
 
         val createButton: Button = findViewById(R.id.buttonCreateAlbum)
         createButton.setOnClickListener {
-            val name = findViewById<EditText?>(R.id.editTextName).text.toString()
-            val cover = findViewById<EditText?>(R.id.editTextCoverUrl).text.toString()
+            val name = binding.editTextName.text.toString()
+            val cover = binding.editTextCoverUrl.text.toString()
             val releaseDate = dateTextBox.text.toString()
-            val description = findViewById<EditText?>(R.id.editTextDescription).text.toString()
-            val genre = selectedGenre
-            val recordLabel = selectedRecordLabel
-            newAlbumViewModel.createAlbum(name = name, cover = cover, releaseDate = releaseDate,
-                description = description, genre = genre, recordLabel = recordLabel)
-
-
-            //showToast("Called")
+            val description = binding.editTextDescription.text.toString()
+            val genre = binding.spinnerGenre.text.toString()
+            val recordLabel = binding.spinnerRecordLabel.text.toString()
+            if(validateData(name, cover, releaseDate, description, genre, recordLabel, binding)){
+                newAlbumViewModel.createAlbum(name = name, cover = cover, releaseDate = releaseDate,
+                    description = description, genre = genre, recordLabel = recordLabel)
+            }
         }
 
         newAlbumViewModel.creationResult.observe(this) {
@@ -99,6 +84,61 @@ class NewAlbumActivity : AppCompatActivity() {
                 }
             }
         }
+
+    }
+    private fun validateData(name:String, cover:String, releaseDate:String, description:String, genre:String, recodLabel:String, binding: ActivityNewAlbumBinding): Boolean {
+        var validateName: Boolean = false
+        var validateCover: Boolean = false
+        var validateReleaseDate: Boolean = false
+        var validateDescription: Boolean = false
+        var validateGenre: Boolean = false
+        var validateRecodLabel: Boolean = false
+        if(name.isEmpty()) {
+            binding.nameLy.error = "Campo requerido"
+            validateName = false
+        }else{
+            binding.nameLy.error = null
+            validateName = true
+        }
+        if(cover.isEmpty()) {
+            binding.CoverUrlLy.error = "Campo requerido"
+            validateCover = false
+        }else{
+            validateCover = true
+            binding.CoverUrlLy.error = null
+        }
+        if(releaseDate.isEmpty()) {
+            binding.dateLy.error = "Campo requerido"
+            validateReleaseDate = false
+        }else{
+            validateReleaseDate = true
+            binding.dateLy.error = null
+        }
+        if(description.isEmpty()) {
+            binding.descriptionLy.error = "Campo requerido"
+            validateDescription = false
+        }else{
+            validateDescription = true
+            binding.descriptionLy.error = null
+        }
+        if(genre.isEmpty()) {
+            binding.genreLy.error = "Campo requerido"
+            validateGenre = false
+        }else{
+            validateGenre = true
+            binding.genreLy.error = null
+        }
+        if(recodLabel.isEmpty()) {
+            binding.recordLy.error = "Campo requerido"
+            validateRecodLabel = false
+        }else{
+            validateRecodLabel = true
+            binding.recordLy.error = null
+        }
+        if(validateName && validateCover && validateReleaseDate && validateDescription && validateGenre && validateRecodLabel){
+            return true
+        }
+        return false
 
     }
 

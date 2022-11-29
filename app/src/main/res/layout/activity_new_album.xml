@@ -153,15 +153,16 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/newalbum_textview_genre"
-                app:errorEnabled="true">
+                android:id="@+id/genre_ly"
+                app:errorEnabled="true"
+                android:hint="@string/newAlbum_genre_hint">
 
                 <AutoCompleteTextView
                     android:id="@+id/spinnerGenre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
-                    android:hint="@string/newAlbum_genre_hint"/>
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -175,15 +176,15 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/newalbum_textview_recordlabel"
-                app:errorEnabled="true">
+                android:id="@+id/record_ly"
+                app:errorEnabled="true"
+                android:hint="@string/newAlbum_recordLabel_hint">
 
                 <AutoCompleteTextView
                     android:id="@+id/spinnerRecordLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:hint="@string/newAlbum_recordLabel_hint"/>
+                    android:inputType="none"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
