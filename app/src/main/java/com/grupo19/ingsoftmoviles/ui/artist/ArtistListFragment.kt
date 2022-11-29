@@ -60,7 +60,7 @@ class ArtistListFragment : Fragment() {
 
     private fun showArtistDetail(artist: ArtistResponse) {
         val intent = Intent(thiscontext, ArtistDetailActivity::class.java).apply {
-            putExtra(Constants.ARTIST_OBJECT, artist)
+            putExtra(Constants.ARTIST_ID, artist.id)
         }
         startActivity(intent)
     }

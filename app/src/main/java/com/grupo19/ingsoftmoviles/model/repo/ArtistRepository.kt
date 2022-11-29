@@ -6,4 +6,5 @@ import com.grupo19.ingsoftmoviles.model.network.artist.ArtistServiceAdapterImpl
 
 class ArtistRepository(private val artistServiceAdapter: ArtistServiceAdapter = ArtistServiceAdapterImpl()) {
     suspend fun getArtists(): List<ArtistResponse> = artistServiceAdapter.getArtists()
+    suspend fun getArtistDetail(artistId: Int): ArtistResponse = artistServiceAdapter.getArtistDetail(artistId)
 }
