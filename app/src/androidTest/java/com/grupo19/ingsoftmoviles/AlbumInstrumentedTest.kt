@@ -7,6 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.grupo19.ingsoftmoviles.ui.CountingIdlingResourceSingleton
+import com.grupo19.ingsoftmoviles.ui.HomeActivity
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -17,7 +18,7 @@ import org.junit.runner.RunWith
 class AlbumInstrumentedTest {
 
     @get:Rule()
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+    val activityRule = ActivityScenarioRule(HomeActivity::class.java)
 
     @Before
     fun setUp() {
