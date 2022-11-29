@@ -1,5 +1,7 @@
 package com.grupo19.ingsoftmoviles.ui.album
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -10,6 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityNewAlbumBinding
 import com.grupo19.ingsoftmoviles.model.ResultWrapper
+import com.grupo19.ingsoftmoviles.ui.Constants
 import com.grupo19.ingsoftmoviles.viewmodel.NewAlbumViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -85,7 +88,10 @@ class NewAlbumActivity : AppCompatActivity() {
             when (it) {
                 is ResultWrapper.Loading -> {  }
                 is ResultWrapper.Success -> {
-                    showAlert("Album guardado", "El album ha sido almacenado con exito, ahora puede verlo en la lista de albumes o asociar canciones a este.")
+                    it.data?.id?.let { it1 ->
+                        showAlert("Album guardado", "El album ha sido almacenado con exito, ahora puede verlo en la lista de albumes o asociar canciones a este.", this,
+                            it1)
+                    }
                 }
                 is ResultWrapper.Error -> {
                     showToast("Error al crear album")
@@ -99,7 +105,7 @@ class NewAlbumActivity : AppCompatActivity() {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
-    fun showAlert(title:String,message:String){
+    private fun showAlert(title:String, message:String, context:Context, albumId:Int){
         val buttonCancel = getString(R.string.button_cancel_pupup_album)
         val buttonOk = getString(R.string.button_ok_pupup_album)
         MaterialAlertDialogBuilder(this@NewAlbumActivity)
@@ -109,9 +115,13 @@ class NewAlbumActivity : AppCompatActivity() {
                 // Respond to negative button press
             }
             .setPositiveButton(buttonOk) { dialog, which ->
-                // Respond to positive button press
+                loadAssociateTrack(context, albumId)
             }
             .show()
     }
-
+    private fun loadAssociateTrack(context: Context, albumId:Int){
+        val intent = Intent(context, AsociateTrackAlbumActivity::class.java)
+        intent.putExtra(Constants.ALBUM_ID, albumId)
+        context.startActivity(intent)
+    }
 }
