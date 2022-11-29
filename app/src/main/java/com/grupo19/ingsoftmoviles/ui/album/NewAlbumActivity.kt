@@ -13,6 +13,7 @@ import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityNewAlbumBinding
 import com.grupo19.ingsoftmoviles.model.ResultWrapper
 import com.grupo19.ingsoftmoviles.ui.Constants
+import com.grupo19.ingsoftmoviles.ui.HomeActivity
 import com.grupo19.ingsoftmoviles.viewmodel.NewAlbumViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -112,7 +113,7 @@ class NewAlbumActivity : AppCompatActivity() {
             .setTitle(title)
             .setMessage(message)
             .setNegativeButton(buttonCancel) { dialog, which ->
-                // Respond to negative button press
+                loadAlbumList(context)
             }
             .setPositiveButton(buttonOk) { dialog, which ->
                 loadAssociateTrack(context, albumId)
@@ -122,6 +123,10 @@ class NewAlbumActivity : AppCompatActivity() {
     private fun loadAssociateTrack(context: Context, albumId:Int){
         val intent = Intent(context, AsociateTrackAlbumActivity::class.java)
         intent.putExtra(Constants.ALBUM_ID, albumId)
+        context.startActivity(intent)
+    }
+    private fun loadAlbumList(context: Context){
+        val intent = Intent(context, HomeActivity::class.java)
         context.startActivity(intent)
     }
 }
