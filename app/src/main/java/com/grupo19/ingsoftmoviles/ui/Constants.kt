@@ -12,4 +12,8 @@ object Constants {
 
     const val ALBUM_ID_ERROR = -1
 
+    const val ARTIST_ID = "ARTIST_ID"
+
+    const val ARTIST_ID_ERROR = -1
+
 }

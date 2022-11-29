@@ -7,4 +7,8 @@ class ArtistServiceAdapterImpl( private val clientBuilder: RetrofitBuilder = Ret
     override suspend fun getArtists(): List<ArtistResponse> {
         return clientBuilder.createClient(ArtistServiceRetrofit::class.java).getArtists()
     }
+
+    override suspend fun getArtistDetail(artistId: Int): ArtistResponse {
+        return clientBuilder.createClient(ArtistServiceRetrofit::class.java).getArtistDetail(artistId)
+    }
 }
