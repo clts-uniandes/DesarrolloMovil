@@ -5,5 +5,5 @@ import com.grupo19.ingsoftmoviles.model.data.CollectorResponse
 interface CollectorServiceAdapter {
 
     suspend fun getCollectors(): List<CollectorResponse>
-
+    suspend fun getCollectorDetail(collectorId: Int): CollectorResponse
 }

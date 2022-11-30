@@ -16,4 +16,8 @@ object Constants {
 
     const val ARTIST_ID_ERROR = -1
 
+    const val COLLECTOR_ID = "COLLECTOR_ID"
+
+    const val COLLECTOR_ID_ERROR = -1
+
 }

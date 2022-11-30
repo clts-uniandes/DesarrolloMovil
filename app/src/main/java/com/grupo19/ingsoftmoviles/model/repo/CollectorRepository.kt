@@ -6,4 +6,5 @@ import com.grupo19.ingsoftmoviles.model.network.collector.CollectorServiceAdapte
 
 class CollectorRepository(private val collectorServiceAdapter: CollectorServiceAdapter = CollectorServiceAdapterImpl()) {
     suspend fun getCollectors(): List<CollectorResponse> = collectorServiceAdapter.getCollectors()
+    suspend fun getCollectorDetail(collectorId: Int): CollectorResponse = collectorServiceAdapter.getCollectorDetail(collectorId)
 }
