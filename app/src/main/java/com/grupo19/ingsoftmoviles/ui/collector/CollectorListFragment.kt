@@ -1,6 +1,7 @@
 package com.grupo19.ingsoftmoviles.ui.collector
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.grupo19.ingsoftmoviles.databinding.FragmentCollectorListBinding
+import com.grupo19.ingsoftmoviles.ui.Constants
 import com.grupo19.ingsoftmoviles.ui.adapters.CollectorListAdapter
 import com.grupo19.ingsoftmoviles.viewmodel.CollectorListViewModel
 
@@ -33,7 +35,7 @@ class CollectorListFragment : Fragment() {
         }
 
         collectorListViewModel.showSelectedCollector.observe(this) {
-            /* showCollectorDetail(it)*/
+            showCollectorDetail(it.id)
         }
 
         collectorListViewModel.onCreate()
@@ -50,12 +52,12 @@ class CollectorListFragment : Fragment() {
         return binding.root
     }
 
-    /*private fun showCollectorDetail(args/id para invocacion detalle coleccionista, NO USAR item de lista) {
-        val intent = Intent(thiscontext, CollectorDetailActivity::class.java).apply {
-            putExtra(Constants.COLLECTOR?_OBJECT, album)????
+    private fun showCollectorDetail(collectorId: Int) {
+        val intent = Intent(thisContext, CollectorDetailActivity::class.java).apply {
+            putExtra(Constants.COLLECTOR_ID, collectorId)
         }
         startActivity(intent)
-    }*/
+    }
 
     companion object {
         /**
