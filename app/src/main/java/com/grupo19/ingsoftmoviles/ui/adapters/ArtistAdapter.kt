@@ -1,6 +1,7 @@
 package com.grupo19.ingsoftmoviles.ui.adapters
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,14 +27,21 @@ class ArtistAdapter(private val context: Context, private val artistList: List<A
         val artist = artistList[position]
         holder.artistName.text = artist.name
         holder.artistDescription.text = artist.description.toString().substring(0,150)
-        Glide.with(context)
-            .load(artist.image.toUri().buildUpon().scheme("https").build())
-            .apply(
-                RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .error(R.drawable.ic_broken_image))
-            .into(holder.artisImageView)
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.M){
+            Glide.with(context)
+                .load(artist.image)
+                .into(holder.artisImageView)
+        }else{
+            Glide.with(context)
+                .load(artist.image.toUri().buildUpon().scheme("https").build())
+                .apply(
+                    RequestOptions()
+                        .placeholder(R.drawable.loading_animation)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .error(R.drawable.ic_broken_image))
+                .into(holder.artisImageView)
+        }
+
         holder.artistCardView.setOnClickListener{ clickListener(artist) }
     }
 
@@ -47,4 +55,5 @@ class ArtistAdapter(private val context: Context, private val artistList: List<A
         val artisImageView: ImageView = view.findViewById(R.id.artist_item_image)
         val artistCardView: MaterialCardView = view.findViewById(R.id.artist_card)
     }
+
 }
