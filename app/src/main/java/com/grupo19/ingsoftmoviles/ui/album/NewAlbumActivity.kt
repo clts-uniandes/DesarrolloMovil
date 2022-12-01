@@ -3,11 +3,9 @@ package com.grupo19.ingsoftmoviles.ui.album
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.interaction.PressInteraction
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
@@ -43,8 +41,10 @@ class NewAlbumActivity : AppCompatActivity() {
             datePicker.show(supportFragmentManager, "Escoja fecha")
             datePicker.addOnPositiveButtonClickListener {
                 val dateFormatter = SimpleDateFormat("yyyy-MM-dd")
-                val date = dateFormatter.format(Date(it))
-                dateTextBox.text = date
+                val cal = Calendar.getInstance()
+                cal.time = Date(it)
+                cal.add(Calendar.DATE, 1)
+                dateTextBox.text = dateFormatter.format(cal.time)
             }
         }
 
@@ -87,12 +87,12 @@ class NewAlbumActivity : AppCompatActivity() {
 
     }
     private fun validateData(name:String, cover:String, releaseDate:String, description:String, genre:String, recodLabel:String, binding: ActivityNewAlbumBinding): Boolean {
-        var validateName: Boolean = false
-        var validateCover: Boolean = false
-        var validateReleaseDate: Boolean = false
-        var validateDescription: Boolean = false
-        var validateGenre: Boolean = false
-        var validateRecodLabel: Boolean = false
+        var validateName = false
+        var validateCover = false
+        var validateReleaseDate = false
+        var validateDescription = false
+        var validateGenre = false
+        var validateRecordLabel = false
         if(name.isEmpty()) {
             binding.nameLy.error = "Campo requerido"
             validateName = false
@@ -130,12 +130,12 @@ class NewAlbumActivity : AppCompatActivity() {
         }
         if(recodLabel.isEmpty()) {
             binding.recordLy.error = "Campo requerido"
-            validateRecodLabel = false
+            validateRecordLabel = false
         }else{
-            validateRecodLabel = true
+            validateRecordLabel = true
             binding.recordLy.error = null
         }
-        if(validateName && validateCover && validateReleaseDate && validateDescription && validateGenre && validateRecodLabel){
+        if(validateName && validateCover && validateReleaseDate && validateDescription && validateGenre && validateRecordLabel){
             return true
         }
         return false
