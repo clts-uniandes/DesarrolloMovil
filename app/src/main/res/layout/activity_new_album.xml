@@ -25,12 +25,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!--TextView
-                android:id="@+id/textViewTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/newalbum_textview_title" /-->
-
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="match_parent"
@@ -42,21 +36,10 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <!--Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" /-->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-                <!--EditText
-                    android:id="@+id/editTextName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/newalbum_textview_name"
-                    android:inputType="text"/-->
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/name_ly"
@@ -73,12 +56,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!--EditText
-                    android:id="@+id/editTextCoverUrl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/newalbum_textview_cover" /-->
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/CoverUrl_ly"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -94,15 +71,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-
-                <!--EditText
-                    android:id="@+id/editTextDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="date"
-                    android:text="@string/newalbum_textview_releasedate" /-->
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/date_ly"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -117,14 +85,6 @@
                         android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <!--EditText
-                    android:id="@+id/editTextDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="@string/newalbum_textview_description" /-->
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/description_ly"
