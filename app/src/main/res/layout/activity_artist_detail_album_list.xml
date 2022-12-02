@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.artist.ArtistDetailAlbumListActivity" >
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artist_detail_album_recycler_view"
         android:layout_width="match_parent"

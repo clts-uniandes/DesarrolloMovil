@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:scaleType="fitCenter"
-                tools:contentDescription="Image description test" />
+                android:contentDescription="Artist"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
