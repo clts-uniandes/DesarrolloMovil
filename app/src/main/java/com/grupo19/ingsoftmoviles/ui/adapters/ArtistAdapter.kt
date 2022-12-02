@@ -26,7 +26,7 @@ class ArtistAdapter(private val context: Context, private val artistList: List<A
     override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
         val artist = artistList[position]
         holder.artistName.text = artist.name
-        holder.artistDescription.text = artist.description.toString().substring(0,150)
+        holder.artistDescription.text = artist.description
         if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.M){
             Glide.with(context)
                 .load(artist.image)
