@@ -1,6 +1,7 @@
 package com.grupo19.ingsoftmoviles.ui.adapters
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,14 +34,21 @@ class ArtistDetailAlbumAdapter(private val context: Context,
         val album = albumsList[position]
         holder.albumNameTextView.text = album.name
         holder.genreTextView.text = album.genre
-        Glide.with(context)
-            .load(album.cover.toUri().buildUpon().scheme("https").build())
-            .apply(
-                RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .error(R.drawable.ic_broken_image))
-            .into(holder.imageView)
+
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.M){
+            Glide.with(context)
+                .load(album.cover)
+                .into(holder.imageView)
+        }else{
+            Glide.with(context)
+                .load(album.cover.toUri().buildUpon().scheme("https").build())
+                .apply(
+                    RequestOptions()
+                        .placeholder(R.drawable.loading_animation)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .error(R.drawable.ic_broken_image))
+                .into(holder.imageView)
+        }
     }
 
     override fun getItemCount(): Int {
