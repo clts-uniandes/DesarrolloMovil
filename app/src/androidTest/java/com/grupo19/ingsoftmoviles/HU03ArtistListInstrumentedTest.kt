@@ -1,7 +1,6 @@
 package com.grupo19.ingsoftmoviles
 
 import android.view.Gravity
-import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
@@ -17,7 +16,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.grupo19.ingsoftmoviles.ui.CountingIdlingResourceSingleton
 import com.grupo19.ingsoftmoviles.ui.HomeActivity
 import com.grupo19.ingsoftmoviles.ui.adapters.ArtistAdapter
-import org.hamcrest.Matchers
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -48,7 +46,7 @@ class HU03ArtistListInstrumentedTest {
     fun test_scrollableArtists_andShowArtistDetail() {
         onView(withId(R.id.my_drawer_layout))
             .check(ViewAssertions.matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
-            .perform(DrawerActions.open());
+            .perform(DrawerActions.open())
 
         onView(withId(R.id.nav_view))
             .perform(NavigationViewActions.navigateTo(R.id.artistListFragment))

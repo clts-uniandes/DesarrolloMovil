@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.platform.LocalContext
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityAsociateTrackAlbumBinding
 import com.grupo19.ingsoftmoviles.model.data.TrackCreate
-import com.grupo19.ingsoftmoviles.model.repo.TrackRepository
 import com.grupo19.ingsoftmoviles.ui.Constants
 import com.grupo19.ingsoftmoviles.ui.Constants.ALBUM_ID_ERROR
 import com.grupo19.ingsoftmoviles.ui.HomeActivity
@@ -32,22 +30,22 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
         val albumId: Int = intent.extras?.getInt(Constants.ALBUM_ID)?.toInt() ?: ALBUM_ID_ERROR
 
         binding.buttonAsociate.setOnClickListener{
-            var validateName: Boolean = false
-            var validateDuration: Boolean = false
+            var validateName = false
+            var validateDuration = false
 
             if(binding.trackName.text.toString().isEmpty()) {
-                binding.trackNameLy.setError("Campo requerido")
+                binding.trackNameLy.error = "Campo requerido"
                 validateName = false
             }else{
-                binding.trackNameLy.setError(null)
+                binding.trackNameLy.error = null
                 validateName = true
             }
             if(binding.trackDuration.text.toString().isEmpty()) {
-                binding.trackDurationLy.setError("Campo requerido")
+                binding.trackDurationLy.error = "Campo requerido"
                 validateDuration = false
             }else{
                 validateDuration = true
-                binding.trackDurationLy.setError(null)
+                binding.trackDurationLy.error = null
             }
             if(validateName && validateDuration){
                 createTrack(albumId, binding.trackName.text.toString(), binding.trackDuration.text.toString())
@@ -65,11 +63,11 @@ class AsociateTrackAlbumActivity : AppCompatActivity() {
 
         }
     }
-    fun createTrack(albumId:Int, name_track:String, duration_track:String){
-        val trackCreate : TrackCreate = TrackCreate(name_track, duration_track)
+    private fun createTrack(albumId:Int, name_track:String, duration_track:String){
+        val trackCreate = TrackCreate(name_track, duration_track)
         trackViewModel.onCreateTrack(albumId, trackCreate)
     }
-    fun showAlert(title:String,message:String, albumId:Int){
+    private fun showAlert(title:String, message:String, albumId:Int){
         val buttonCancel = getString(R.string.button_cancel_pupup_track)
         val buttonOk = getString(R.string.button_ok_pupup_track)
         val context = this@AsociateTrackAlbumActivity

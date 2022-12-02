@@ -1,6 +1,5 @@
 package com.grupo19.ingsoftmoviles
 
-import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.espresso.Espresso.onView

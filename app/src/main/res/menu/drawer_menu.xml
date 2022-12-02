@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/albumListFragment"
-        android:title="Álbumes" />
+        android:title="@string/drawer_album_name" />
 
     <item
         android:id="@+id/newAlbumActivity"
         android:title="@string/drawer_createAlbum_name" />
 
     <item android:id="@+id/artistListFragment"
-        android:title="Artistas" />
+        android:title="@string/drawer_artist_name" />
 
     <item android:id="@+id/collectorFragment"
         android:title="@string/drawer_collector_name" />

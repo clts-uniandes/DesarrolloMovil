@@ -5,8 +5,8 @@
     <string name="newalbum_textview_cover">Carátula</string>
     <string name="newalbum_textview_releasedate">Fecha de lanzamiento</string>
     <string name="newalbum_textview_description">Descripción</string>
-    <string name="newalbum_textview_genre">Género</string>
-    <string name="newalbum_textview_recordlabel">Sello discográfico</string>
+
+
     <string name="title_activity_asociate_track">Asociar</string>
     <string name="input_name_track">Nombre del track</string>
     <string name="newalbum_button_create">+ Crear</string>
@@ -41,4 +41,8 @@
     <string name="drawer_createAlbum_name">Crear Álbum</string>
     <string name="newAlbum_genre_hint">Seleccione un género</string>
     <string name="newAlbum_recordLabel_hint">Seleccione compañia discográfica</string>
+    <string name="albumes_fragment_name">Albumes</string>
+    <string name="artistas_fragment_name">Artistas</string>
+    <string name="drawer_album_name">Álbumes</string>
+    <string name="drawer_artist_name">Artistas</string>
 </resources>

@@ -14,10 +14,8 @@ class TrackViewModel(private val trackRepository: TrackRepository = TrackReposit
     val statusMessage: LiveData<Boolean> get() = _statusMessage
 
     fun onCreateTrack(id_album:Int, trackCreate: TrackCreate){
-        val id = id_album
-        val track = trackCreate
         viewModelScope.launch {
-            _statusMessage.value = trackRepository.createTrack(id, track)
+            _statusMessage.value = trackRepository.createTrack(id_album, trackCreate)
         }
     }
 }
