@@ -1,12 +1,10 @@
 package com.grupo19.ingsoftmoviles
 
 import android.view.Gravity
-import androidx.compose.ui.test.hasText
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.DrawerActions
 import androidx.test.espresso.contrib.DrawerMatchers
@@ -16,7 +14,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.grupo19.ingsoftmoviles.ui.CountingIdlingResourceSingleton
 import com.grupo19.ingsoftmoviles.ui.HomeActivity
-import com.grupo19.ingsoftmoviles.ui.adapters.AlbumAdapter
 import com.grupo19.ingsoftmoviles.ui.adapters.ArtistAdapter
 import org.hamcrest.Matchers
 import org.junit.After
@@ -46,10 +43,10 @@ class HU04ArtistDetailInstrumentedTest {
     fun test_scrollableAlbums() {
         onView(withId(R.id.my_drawer_layout))
             .check(matches(DrawerMatchers.isClosed(Gravity.LEFT))) // Left Drawer should be closed.
-            .perform(DrawerActions.open());
+            .perform(DrawerActions.open())
 
         onView(withId(R.id.nav_view))
-            .perform(NavigationViewActions.navigateTo(R.id.artistListFragment));
+            .perform(NavigationViewActions.navigateTo(R.id.artistListFragment))
 
         onView(withId(R.id.artist_recycler_view))
             .perform(swipeUp())

@@ -17,7 +17,6 @@ class AlbumServiceAdapterImpl(private val clientBuilder: RetrofitBuilder = Retro
 
     override suspend fun createAlbum(newAlbum: AlbumCreate): Response<AlbumResponse> {
         val client = clientBuilder.createClient(AlbumServiceRetrofit::class.java)
-        val response = client.createAlbum(newAlbum)
-        return response
+        return client.createAlbum(newAlbum)
     }
 }

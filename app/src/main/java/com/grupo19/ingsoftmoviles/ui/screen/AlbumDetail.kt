@@ -1,8 +1,6 @@
 package com.grupo19.ingsoftmoviles.ui.screen
 
 import android.content.Intent
-import android.view.View
-import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*

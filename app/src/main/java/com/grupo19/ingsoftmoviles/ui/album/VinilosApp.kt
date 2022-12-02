@@ -3,7 +3,6 @@ package com.grupo19.ingsoftmoviles.ui.album
 import androidx.compose.foundation.rememberScrollState
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.runtime.Composable
-import com.grupo19.ingsoftmoviles.model.data.AlbumResponse
 import com.grupo19.ingsoftmoviles.ui.screen.AlbumDetail
 
 @Composable

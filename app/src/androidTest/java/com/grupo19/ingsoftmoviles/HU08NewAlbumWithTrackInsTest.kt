@@ -9,7 +9,6 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.DrawerActions
 import androidx.test.espresso.contrib.DrawerMatchers
-import androidx.test.espresso.contrib.NavigationViewActions
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -58,10 +57,10 @@ class HU08NewAlbumWithTrackInsTest {
 
         onView(withId(R.id.my_drawer_layout))
             .check(ViewAssertions.matches(DrawerMatchers.isClosed(Gravity.LEFT))) // Left Drawer should be closed.
-            .perform(DrawerActions.open());
+            .perform(DrawerActions.open())
 
         onView(withText("Crear Álbum"))
-            .perform(click());
+            .perform(click())
 
         onView(withId(R.id.editTextName))
             .perform(typeText("Mi album Prueba"))
@@ -76,14 +75,14 @@ class HU08NewAlbumWithTrackInsTest {
             .perform(typeText("Mi Album Prueba es especial"), closeSoftKeyboard())
 
         onView(withId(R.id.spinnerGenre))
-            .perform(click(), closeSoftKeyboard());
+            .perform(click(), closeSoftKeyboard())
 
         onView(withText("Rock"))
             .inRoot(withDecorView(not(`is`(mActivity!!.window.decorView))))
             .perform(click())
 
         onView(withId(R.id.spinnerRecordLabel))
-            .perform(click(), closeSoftKeyboard());
+            .perform(click(), closeSoftKeyboard())
 
         onView(withText("EMI"))
             .inRoot(withDecorView(not(`is`(mActivity!!.window.decorView))))
@@ -92,7 +91,7 @@ class HU08NewAlbumWithTrackInsTest {
         onView(withId(R.id.buttonCreateAlbum))
             .perform(click())
 
-        Thread.sleep(2000);
+        Thread.sleep(2000)
 
         onView(withText(R.string.button_ok_pupup_album)).perform(click())
 
@@ -104,14 +103,14 @@ class HU08NewAlbumWithTrackInsTest {
 
         onView(withId(R.id.button_asociate))
 
-        Thread.sleep(2000);
+        Thread.sleep(2000)
         composeTestRule
             .onNode(hasText("Tracks"))
 
         composeTestRule
             .onNode(hasText("Track test"))
 
-        Thread.sleep(2000);
+        Thread.sleep(2000)
 
     }
 }

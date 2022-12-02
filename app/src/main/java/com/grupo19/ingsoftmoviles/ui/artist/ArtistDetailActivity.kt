@@ -7,19 +7,15 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
-import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.google.gson.Gson
 import com.grupo19.ingsoftmoviles.R
 import com.grupo19.ingsoftmoviles.databinding.ActivityArtistDetailBinding
 import com.grupo19.ingsoftmoviles.model.data.ArtistDetailAlbumListWrapper
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
 import com.grupo19.ingsoftmoviles.ui.Constants
-import com.grupo19.ingsoftmoviles.ui.adapters.ArtistAdapter
 import com.grupo19.ingsoftmoviles.viewmodel.ArtistDetailViewModel
-import com.grupo19.ingsoftmoviles.viewmodel.ArtistViewModel
 
 class ArtistDetailActivity: AppCompatActivity()  {
 
@@ -33,7 +29,7 @@ class ArtistDetailActivity: AppCompatActivity()  {
         setContentView(binding.root)
 
         val artistId: Int = intent.getIntExtra(Constants.ARTIST_ID, Constants.ARTIST_ID_ERROR)
-        println("Artista ID: " + artistId)
+        println("Artista ID: $artistId")
 
         artistDetailViewModel.onCreate(artistId)
 

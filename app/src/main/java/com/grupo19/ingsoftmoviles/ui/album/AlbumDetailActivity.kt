@@ -18,7 +18,7 @@ class AlbumDetailActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val albumId: Int = intent.extras?.getInt(Constants.ALBUM_ID)?.toInt() ?: Constants.ALBUM_ID_ERROR
-        println("Este es el albumID: " + albumId)
+        println("Este es el albumID: $albumId")
         setContent {
             VinilosTheme {
                 // A surface container using the 'background' color from the theme

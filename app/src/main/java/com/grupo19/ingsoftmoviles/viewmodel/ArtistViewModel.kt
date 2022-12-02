@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.grupo19.ingsoftmoviles.model.data.Artist
 import com.grupo19.ingsoftmoviles.model.data.ArtistResponse
 import com.grupo19.ingsoftmoviles.model.repo.ArtistRepository
 import com.grupo19.ingsoftmoviles.ui.CountingIdlingResourceSingleton
