@@ -10,4 +10,15 @@
     <color name="grey_secondary">#FFbdbdbd</color>
     <color name="grey_secondary_light">#FFefefef</color>
     <color name="grey_secondary_dark">#FF8d8d8d</color>
+
+    <color name="primaryColor">#1a237e</color>
+    <color name="primaryLightColor">#534bae</color>
+    <color name="primaryDarkColor">#000051</color>
+
+    <color name="secondaryColor">#c5cae9</color>
+    <color name="secondaryLightColor">#f8fdff</color>
+    <color name="secondaryDarkColor">#9499b7</color>
+
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
 </resources>
