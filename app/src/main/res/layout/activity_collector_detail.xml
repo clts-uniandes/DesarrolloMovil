@@ -38,7 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:scaleType="fitCenter"
-                app:srcCompat="@mipmap/ic_launcher_foreground"
+
+                app:srcCompat="@drawable/profile"
                 tools:contentDescription="Image description test" />
 
             <RelativeLayout
