@@ -1,6 +1,7 @@
 package com.grupo19.ingsoftmoviles.ui.artist
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -57,14 +58,20 @@ class ArtistDetailActivity: AppCompatActivity()  {
     }
 
     private fun setImage(imageUrl: String) {
-        Glide.with(this)
-            .load(imageUrl.toUri().buildUpon().scheme("https").build())
-            .apply(
-                RequestOptions()
-                    .placeholder(R.drawable.loading_animation)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .error(R.drawable.ic_broken_image))
-            .into(binding.cardArtistDetailImage)
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.M){
+            Glide.with(this)
+                .load(imageUrl)
+                .into(binding.cardArtistDetailImage)
+        }else{
+            Glide.with(this)
+                .load(imageUrl.toUri().buildUpon().scheme("https").build())
+                .apply(
+                    RequestOptions()
+                        .placeholder(R.drawable.loading_animation)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .error(R.drawable.ic_broken_image))
+                .into(binding.cardArtistDetailImage)
+        }
     }
 
     private fun setBody(name:String, birthDate: String, description: String) {
