@@ -26,7 +26,7 @@ import org.junit.runner.RunWith
 
 
 @RunWith(AndroidJUnit4::class)
-class HU05CollectorListInstrumentedTest {
+class HU06CollectorDetailInstrumentedTest {
 
     @get:Rule()
     val activityRule = ActivityScenarioRule(HomeActivity::class.java)
