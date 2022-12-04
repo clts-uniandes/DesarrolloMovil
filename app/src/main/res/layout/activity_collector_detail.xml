@@ -39,7 +39,7 @@
                 android:layout_height="194dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/profile"
-                android:contentDescription="profile" />
+                android:contentDescription="@string/collector_profile_photo" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

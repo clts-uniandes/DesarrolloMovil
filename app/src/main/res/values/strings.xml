@@ -45,4 +45,6 @@
     <string name="artistas_fragment_name">Artistas</string>
     <string name="drawer_album_name">Álbumes</string>
     <string name="drawer_artist_name">Artistas</string>
+    <string name="artist_image_description">Imagen de artista</string>
+    <string name="collector_profile_photo">Placeholder for collector photo</string>
 </resources>
